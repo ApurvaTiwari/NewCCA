@@ -1,0 +1,287 @@
+#container {
+    border:0px solid #cecfce; 
+    border-left:none;
+    border-right:none;
+}
+
+.calendar {
+    background-image:url(/resources/themes/images/default/shared/calendar.gif) !important;
+}
+
+.blist {
+    background-image: url(list-items.gif) !important;
+}
+
+.bmenu {
+    background-image: url(menu-show.gif) !important;
+}
+
+.toolbarbg {
+	background: scroll left top;
+}
+
+
+.menu-title{
+    background: #D6E3F2;
+    border-style: solid;
+    border-color:#DAE6F4 #99bbe8 #99bbe8 #DAE6F4;
+    border-width: 1px;
+    margin:-2px -2px 0;
+    font:bold 20px tahoma,arial,verdana,sans-serif;
+    display:block;
+    padding:3px;
+}
+
+.user {
+    background-image:url(/images/iconManageAdminAccounts.png) !important
+}
+
+.service {background:url(/images/application_double.png) 0 0 no-repeat !important;}
+
+
+.editprofile {background:url(/images/edit_my_profile.png) 0 0 !important;}
+
+.changepwd {background:url(/images/change_my_password.png) 0 0 no-repeat !important;}
+
+.appaccess {background:url(/images/application_add.png) 0 0 no-repeat !important;}
+
+.auth {background:url(/images/edit_2factor.png) 0 0 no-repeat !important;}
+
+.orgpro {background:url(/images/org.png) 0 0 !important;}
+
+.orghigh {background:url(/images/org_hierarchy.png) 0 0 no-repeat !important;}
+
+.orguser {background:url(/images/group.png) 0 0 no-repeat !important;}
+
+.orgadmins {background:url(/images/system_users.png) 0 0 no-repeat !important;}
+
+.orgopt {
+    background-image:url(/images/building_edit.png) !important;
+}
+.searchuserorg {
+    background-image:url(/images/search_user.png) !important
+}
+
+.searchuseraccorg {
+    background-image:url(/images/search_accross.png) !important;
+}
+.searchdivinorg {
+    background-image:url(/images/computer_search.png) !important;
+}
+
+.searchorgaccex {
+    background-image:url(/images/search_accross.png) !important;
+}
+
+
+
+.penreq {
+    background-image:url(/images/status_away.png) !important;
+}
+
+.userreq {
+    background-image:url(/images/iconUserAdd.png) !important;
+}
+
+.userreqaccex {
+    background-image:url(/images/user_go.png) !important;
+}
+
+.orgreq {
+    background-image:url(/images/building_add.png) !important;
+}
+
+.orgreqaccex {
+    background-image:url(/images/building_go.png) !important;
+}
+
+.invite {
+    background-image:url(/images/iconInviteUsers.png) !important;
+}
+.invuser {
+    background-image:url(/images/iconInviteUsers.png) !important;
+}
+.invuserforcon {
+    background-image:url(/images/laptop_connect.png) !important;
+}
+.invdiv {
+    background-image:url(/images/email_go.png) !important;
+}
+.invtoplvlcom {
+    background-image:url(/images/iconEditOrg.png) !important;
+}
+					            					    
+.rolserv {
+    background-image:url(/images/application_side_boxes.png) !important;
+}				            
+.mgrol {
+    background-image:url(/images/iconManageAdminRoles.png) !important;
+}
+.crerol {
+    background-image:url(/images/iconManageIdP.png) !important;
+}
+.mgser {
+    background-image:url(/images/iconCreateComm.png) !important;
+}
+
+.audits {
+    background-image:url(/images/user_red.png) !important;
+}
+.audusrgra {
+    background-image:url(/images/iconManageIdP.png) !important;
+}
+.auusr {
+    background-image:url(/images/user_red.png) !important;
+}
+.provider {
+    background-image:url(/images/users.png) !important;
+}
+.access {
+	background-image:url(/images/iconAccept.gif) !important;
+}
+
+.menuitem_billing {
+    background-image:url(/images/billing.png) !important;
+}
+.itmvwprsheet {
+    background-image:url(/images/price_tag.png) !important;
+}
+
+.cmm {
+    background-image:url(/images/cmm.png) !important;
+}
+.supcodcha {
+    background-image:url(/images/barcode.png) !important;
+}
+.reqsynmsg {
+    background-image:url(/images/table_refresh.png) !important;
+}
+
+.usersum {
+    background-image:url(/images/report_user.png) !important;
+}
+.usersersum {
+    background-image:url(/images/report.png) !important;
+}
+.itmsersum {
+    background-image:url(/images/iconCreateComm.png) !important;
+}
+.secadmrep {
+    background-image:url(/images/report_key.png) !important;
+}
+.serownrep {
+    background-image:url(/images/iconManageAdminRoles.png) !important;
+}
+.inactrep {
+    background-image:url(/images/status_offline.png) !important;
+}
+.audusrrep {
+    background-image:url(/images/report_user.png) !important;
+}
+.audustgrtrep {
+    background-image:url(/images/report_user.png) !important;
+}
+.graphs {
+    background-image:url(/images/iconReports.png) !important;
+}
+.totgra {
+    background-image:url(/images/sum.png) !important;
+}
+.ratofinc {
+    background-image:url(/images/rate_of_increase.png) !important;
+}
+.totsnap {
+    background-image:url(/images/snapshot.png) !important;
+}
+
+.soa {
+    background-image:url(/images/iconShieldPlus.gif) !important;
+}
+.lang {
+    background-image:url(/images/iconStar.gif) !important;
+}
+.uptrafle {
+    background-image:url(/images/leaf.gif) !important;
+}
+.dbinfo {
+    background-image:url(/images/database.png) !important;
+}
+.propmgr {
+    background-image:url(/images/personal.png) !important;
+}
+.refcach {
+    background-image:url(/images/refresh.png) !important;
+}
+.vwsysinf {
+    background-image:url(/images/iconInfo.gif) !important;
+}
+.synser {
+    background-image:url(/images/find.png) !important;
+}
+.synrep {
+    background-image:url(/images/report.png) !important;
+}
+.sectst {
+    background-image:url(/images/vista_shield.png) !important;
+}
+.vwccamsg {
+    background-image:url(/images/view_detailed.png) !important;
+}
+.sndsymsg {
+    background-image:url(/images/send_email_group_letter.png) !important;
+}
+.setseq {
+    background-image:url(/images/id.png) !important;
+}
+.vwaqiinmsg {
+    background-image:url(/images/e_mail.png) !important;
+}
+.vwaqoutmsg {
+    background-image:url(/images/view_sidetree.png) !important;
+}
+.sendaqimsg {
+    background-image:url(/images/e_mail.png) !important;
+}
+.vwlook {
+    background-image:url(/images/lookup.png) !important;
+}
+.sitcodrep {
+    background-image:url(/images/sites.png) !important;
+}
+.vwapiinf {
+    background-image:url(/images/symbol_information.png) !important;
+}
+.vwmsgsta {
+    background-image:url(/images/ui_status_bar_blue.png) !important;
+}
+.vwnakmsg {
+    background-image:url(/images/view_sidetree.png) !important;
+}
+.genmigmsg {
+    background-image:url(/images/e_mail.png) !important;
+}
+.vwprop {
+    background-image:url(/images/view_sidetree.png) !important;
+}
+.vwjava {
+    background-image:url(/images/java.png) !important;
+}
+
+
+
+.view {
+    background-image:url(images/view.gif) !important;
+}
+
+.edit {
+    background-image:url(images/edit.gif) !important;
+}
+
+
+.apiconfig {
+    background-image:url(/images/iconApiConfig.png) !important;
+}
+
+.featureconfig {
+    background-image:url(/images/iconFeatureConfig.png) !important;
+}

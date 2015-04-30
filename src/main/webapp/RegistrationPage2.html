@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0045)https://bit6-cca.identity.covapp.io/CommonReg -->
+<html class="x-border-box"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Covisint Connection and Administration</title>
+
+
+<link rel="SHORTCUT ICON" href="https://bit6-cca.identity.covapp.io/images/favicon.ico" type="image/ico">
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=5">
+
+
+<script language="JavaScript" src="./RegistrationPage2_files/commReg.js"></script>
+<!-- FOR HELP POPUP -->
+</head><body onload="docInit();" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" rightmargin="0" marginwidth="0" marginheight="0" class="x-body x-webkit x-chrome x-reset" id="ext-gen1009"><div id="overDiv" style="position:absolute; left:0px; top:0px; bottom:0px; right: 0px; visibility:hidden; z-index:1000;"></div>
+<script language="JavaScript" src="./RegistrationPage2_files/overlib.js"></script>
+<script language="JavaScript" src="./RegistrationPage2_files/floatHelp.js"></script>
+<script language="JavaScript" src="./RegistrationPage2_files/common.js"></script>
+<script language="JavaScript" src="./RegistrationPage2_files/prototype.js"></script>
+<script language="JavaScript" src="./RegistrationPage2_files/xbdhtml.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage2_files/dropdown_menu.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage2_files/jquery-1.7.1.min.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage2_files/jquery.ui.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage2_files/jquery.treeTable.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage2_files/jquery.ui.widget.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage2_files/jquery.ui.position.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage2_files/jquery.ui.dialog.js"></script>
+
+<script type="text/javascript">
+	jQuery.noConflict();
+</script>
+
+<link rel="stylesheet" type="text/css" href="./RegistrationPage2_files/ext-all.css">
+<script type="text/javascript" src="./RegistrationPage2_files/bootstrap.js"></script><script type="text/javascript" src="./RegistrationPage2_files/ext-all.js"></script>
+
+<!-- Example includes -->
+<script type="text/javascript" src="./RegistrationPage2_files/ccamenus.js"></script>
+<link rel="stylesheet" type="text/css" href="./RegistrationPage2_files/ccamenus.css">
+
+
+
+<link rel="stylesheet" href="./RegistrationPage2_files/commReg_default.css" type="text/css">
+
+
+	<!-- Custom CSS -->
+	<link href="https://bit6-cca.portal.covapp.io/documents/guest/css/login/css_override.css" rel="stylesheet">
+
+	<script type="text/javascript" language="JavaScript">
+
+      // REQUIRED for preventing Cross-Frame Spoofing - do not delete!
+      if (top != self)
+      {
+            top.location = self.location;
+      }
+      // END Cross-Frame Spoofing prevention
+
+
+      function doNothing() {
+            // nothing
+      }
+
+      var exImg=new Image(); exImg.src='/images/left_arrow_expand.gif'
+      var unImg=new Image(); unImg.src='/images/left_arrow_collapse.gif'
+
+      function docInit() {
+            
+      }
+
+
+      function helpWindow() {
+         //old: return window.open("https\x3A\x2F\x2Fportal.stg.covisint.com\x2Fweb\x2Fsupport\x2F", "help_win", "width=560,height=485,toolbar=0,location=0,directories=0,status=1,menuBar=1,scrollBars=1,resizable=1");
+         return window.open("https\x3A\x2F\x2Fportal.stg.covisint.com\x2Fweb\x2Fsupport\x2F");
+      }
+
+      function freqCodeWindow() {
+         return window.open("/frequencyCodes.html", "freq_win", "width=560,height=400,toolbar=0,location=0,directories=0,status=1,menuBar=1,scrollBars=1,resizable=1");
+      }
+
+      function openWin( windowURL, windowName, windowFeatures ) {
+      	return window.open( windowURL, windowName, windowFeatures ) ;
+      }
+
+      function logout(target) {
+	   document.LOGOUT.target.value = target;
+         document.LOGOUT.submit();
+      }
+
+      function contactUsWindow() {
+         return window.open("http\x3A\x2F\x2Fwww.covisint.com\x2Fgetintouch");
+      }
+
+      function doPost(action) {
+			document.convertGetToPostForm.action = action;
+			document.convertGetToPostForm.submit();
+		}
+
+
+function checkAll(checkboxName) {
+	var checkboxs = document.getElementsByName(checkboxName)
+	var hasUnSelect = false;
+
+	for (i=0; i<checkboxs.length; i++) {
+		if (checkboxs[i].checked == false) {
+			hasUnSelect = true;
+			break;
+		}
+	}
+
+	// select all
+	if (hasUnSelect == true) {
+		for (i=0; i<checkboxs.length; i++) {
+			if (checkboxs[i].checked == false) {
+				checkboxs[i].checked = true;
+			}
+		}
+	// deselect all
+	} else {
+		for (i=0; i<checkboxs.length; i++) {
+			if (checkboxs[i].checked == true) {
+				checkboxs[i].checked = false;
+			}
+		}
+	}
+}
+
+	  //val could be 1 or 0 (1 for checked)
+	  function selectAll(formObj, checkboxName, val) {
+		checkBoxList=formObj;
+		len = checkBoxList.elements.length;
+		var i=0;
+		for( i=0 ; i<len ; i++) {
+			if (checkBoxList.elements[i].name==checkboxName) {
+				checkBoxList.elements[i].checked=val;
+			}
+		}
+	  }
+
+      var profileHidden = true;
+      function menuProfile() {
+         var subMenu = getElt("profTop1","profSub1");
+         setEltVisibility(subMenu, (profileHidden)?"visible":"hidden");
+         getElt("profTop1").document.profileArrow.src= (profileHidden)?exImg.src:unImg.src;
+         profileHidden = !profileHidden;
+      }
+
+      var languageHidden = true;
+      function menuLanguage(locX, locY) {
+         var subMenu = getElt("langSub1");
+
+         if(is.nav) {
+           (subMenu, locX+8, locY+4);
+           setEltTop (subMenu,locY);
+           setEltLeft (subMenu,locX+8);
+         }
+
+         setEltVisibility(subMenu, (languageHidden)?"visible":"hidden");
+         //getElt("langTop1").document.languageArrow.src= (languageHidden)?exImg.src:unImg.src;
+         languageHidden = !languageHidden;
+      }
+
+   
+
+	function checkFormInputForEnglish(aForm) {
+		//Commented out the code which checks only for english chars in textbox/area
+		
+		return true;
+	}
+
+	// automatically break a long string into multiple lines,
+	// call this function when supportting HP_UX Operating System with Netscape 4.7.
+	function addNewLineChars (message) {
+  		formattedMsg = "";
+  		for (i=0; i<message.length; i++) {
+			formattedMsg += message.charAt(i);
+
+
+
+			if (i%80 == 0 && i != 0) {
+				if (message.charAt(i) == ' ') {
+					formattedMsg += "\n";
+				} else {
+					i++;
+					while (message.charAt(i) != ' ' && i<message.length) {
+						formattedMsg += message.charAt(i);
+						i++;
+					}
+					formattedMsg += "\n";
+				}
+			}
+
+
+  		}
+  		return formattedMsg;
+	}
+
+<!-- show/hide left nav function -->
+function doShowHide(divid1, divid2, divid3) {
+	var div1 = document.getElementById(divid1);
+	var div2 = document.getElementById(divid2);
+	var div3 = document.getElementById(divid3);
+	var cookieValue = getCookie('ccaLeftNav');
+	if (cookieValue == 'none') {
+		div1.style.display = 'block';
+		div2.style.display = 'block';
+		div3.style.display = 'none';
+		// set the cookie
+		writeCookie('ccaLeftNav', 'block');
+	} else {
+		div1.style.display = 'none';
+		div2.style.display = 'none';
+		div3.style.display = 'block';
+		writeCookie('ccaLeftNav', 'none');
+	}
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) {
+		writeCookie('ccaLeftNav', 'none');
+    	return 'none';
+    }
+  } else {
+    begin += 2;
+  }
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1) {
+    end = dc.length;
+  }
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function writeCookie(name, value) {
+	document.cookie = name+ "=" + escape(value);
+}
+
+function setIframeHeight(iframe) {
+  if(iframe.contentDocument) {
+	iframe.height = iframe.contentDocument.documentElement.scrollHeight+30; //FF 3.0.11, Opera 9.63, and Chrome
+  } else {
+	iframe.height = iframe.contentWindow.document.body.scrollHeight+30; //IE6, IE7 and Chrome
+  }
+	}
+</script>
+
+
+<form method="post" name="convertGetToPostForm" style="display:none">
+</form>
+
+
+
+<!-- ----- begin Covisint header table ----- -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<!-- begin Logout form -->
+	<form name="LOGOUT" method="POST" action="./RegistrationPage2_files/RegistrationPage2.html"></form>
+			<input type="HIDDEN" name="cmd" value="LOGOUT">
+			<input type="HIDDEN" name="target" value="">
+	
+	<!-- end Logout form -->
+
+	<!-- begin top Cov DarkLine -->
+	<tbody><tr class="DarkLine">
+		<td height="1" colspan="3"><img src="./RegistrationPage2_files/spacer.gif" width="1" height="1" border="0" alt=""></td>
+	</tr>
+	<!-- end top Cov DarkLine -->
+
+<!-- begin Cov tab row -->
+	<tr class="CovTabBar">
+		<!-- begin Covisint logo -->
+
+		<td width="1%"><a href="https://bit6-cca.identity.covapp.io/CommonReg/secured?cmd=HOME" title="Return to CCA Home Page"><img src="./RegistrationPage2_files/spacer.gif" width="1" height="36" border="0" alt="Covisint"></a></td>
+		<!-- end Covisint logo -->
+
+		<!-- begin tab cell -->
+		<td width="98%">
+				<!-- begin nav elements table -->
+				<table border="0" cellpadding="0" cellspacing="2" width="100%" id="headerTable">
+					<!-- begin visual spacer row -->
+				<!--	<tr>
+						<td height="4" colspan="2"><img src="/images/spacer.gif" width="1" height="6" border="0" alt=""></td>
+
+					</tr>
+				-->
+					<!-- begin visual spacer row -->
+					<!-- begin Cov tabs test-->
+					<tbody><tr valign="top">
+						<td nowrap=""><a href="https://bit6-cca.identity.covapp.io/CommonReg/secured?cmd=HOME" title="Covisint\x20Connection\x20and\x20Administration" class="CovTab"><!--b>Covisint Connection and Administration</b--></a></td>
+						<!-- begin Cov toplinks cell -->
+						<td align="right" class="toplinks_cell">
+								<!-- begin Cov toplinks table -->
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody><tr valign="middle">
+
+
+
+
+
+										<!-- HELP -->
+										
+
+										<td></td><td>
+
+                                        
+
+                                 </td><td>&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+								</tbody></table>
+								<!-- end Cov toplinks table -->
+						</td>
+						<!-- end Cov toplinks cell -->
+					</tr>
+
+					<!-- end Cov tabs -->
+						<!--tr><td colspan="2">&nbsp;</td></tr-->
+					<tr>
+						<!--td>&nbsp;</td-->
+						
+					</tr>				</tbody></table>
+				<!-- end nav elements table -->
+
+			</td>
+			<!-- end tab cell -->
+
+		<!-- begin visual spacer cell -->
+
+		<!--end visual spacer cell -->
+	</tr>
+	<!-- end Cov tab row -->
+
+	<!-- begin bottom Cov DarkLine -->
+	<tr class="DarkLine">
+		<td height="1" colspan="3"><img src="./RegistrationPage2_files/spacer.gif" width="1" height="1" border="0" alt=""></td>
+	</tr>
+	<!-- end bottom Cov DarkLine -->
+
+	<!-- begin Cov spacer bar -->
+
+<!-- 	<tr class="CovSpacerBar">
+		<td height="8" colspan="3"><img src="/images/spacer.gif" width="1" height="8" border="0" alt=""></td>
+	</tr>
+ -->
+	<!-- end Cov spacer bar -->
+
+</tbody></table>
+<!-- ----- end Covisint header table ----- -->
+
+
+
+
+
+
+
+
+
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tbody><tr valign="top">
+
+
+
+
+	    <td>&nbsp;&nbsp;</td>
+	    <td width="100%">
+
+
+<!--script>
+jQuery(document).ready(function(){
+	jQuery('body').fadeIn();
+});
+</script-->
+
+
+<!-- HEADER FILE ENDS -->
+
+
+
+
+<script src="./RegistrationPage2_files/jquery.maskAndUnmask.js" type="text/javascript" charset="utf-8"></script>
+<script language="javascript">
+var $jq=jQuery.noConflict(); 
+$jq(document).ready(function(){
+	
+		var theForm = jQuery("FORM[name=userInfoForm]");
+		fixedAnswer = theForm.find("[name^=fixedAnswer]");
+		fixedAnswer.maskUnmask();
+	
+	imageCaptchaDisplayMode();
+})
+</script>
+
+
+
+<script language="javascript">
+
+
+/*## DOUG ##################################################################################*/
+jQuery(function () {
+	var form = jQuery("FORM[name=userInfoForm]"),
+            pw = form.find("[name=pass1]"),
+            pwPolicies = Ext.get("password_policies");
+
+    pwPolicies.anchorTo(pw[0], "l-r", [10,0]).hide().removeCls('x-hidden');
+    
+    pw.bind("focus", function(){
+        pwPolicies.show(true);
+    }).bind("blur",function(){
+        pwPolicies.hide(true);
+    });
+        
+	new PWPolicyCheck(form, pw, [{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"LENGTH"},{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"CHARACTER_CLASS"},{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"DISALLOWED_WORDS"},{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"HISTORY"}]);
+	
+	var form2 = jQuery("FORM[name=userInfoForm]"),
+    pw2 = form2.find("[name=pass2]"),
+    pwPolicies2 = Ext.get("password_policies2");
+
+	pwPolicies2.anchorTo(pw2[0], "l-r", [10,0]).hide().removeCls('x-hidden');
+	
+	pw2.bind("focus", function(){
+	pwPolicies2.show(true);
+	}).bind("blur",function(){
+	pwPolicies2.hide(true);
+	});
+	
+	new PWPolicyCheck(form2, pw2, [{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"LENGTH"},{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"CHARACTER_CLASS"},{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"DISALLOWED_WORDS"},{"cmd":{"ajaxURLKey":"","name":"ajax"},"el":"HISTORY"},{"cmd":{"field":"pass1","name":"FieldCompare","resultIfMatch":true},"el":"RETRY_CONFIRM_RULE_ID"}]);
+});
+
+
+function nextPage() {
+	if (checkFormInputForEnglish(document.userInfoForm)) {
+		document.userInfoForm.submitBn.disabled = true;
+		document.userInfoForm.submit();
+	}
+}
+
+var win;
+function openWindow() {
+	if(win != null)
+		win.close();
+       win = window.open('/CommonReg?cmd=PASSWORD_RULES', 'PasswordRules', 'location=no,menubar=no,toolbar=no,width=500,height=280,resizable=yes');
+   	win.focus();
+}
+
+function updateCaptcha() {
+	$jq(".captcha").hide();
+	$jq(".captchaUpdate").show();
+	$jq.ajax({
+        url: '/CommonReg',
+        type: "POST",
+        data: {
+        	captcha_type: $jq("#captchaType").val(),
+            event:"update_capcha_image",
+            cmd:"REGISTER_LOGIN_INFO" 
+        },
+        error: function(){
+        	$jq("#captcha").html(data) ;
+        	$jq(".captchaUpdate").hide();
+        	$jq(".captcha").show();
+        },
+        success: function (data){
+        	$jq("#captcha").html(data);
+        	$jq(".captchaUpdate").hide();
+        	$jq(".captcha").show();
+        	imageCaptchaDisplayMode();
+        }
+	});
+}
+
+function playAudioCaptcha(soundobj) {
+	  var thissound= eval("document."+soundobj);
+	  thissound.Play();
+	}
+
+function chooseCaptchaMode() {
+	var mode = $jq("#captchaType").val();
+	if (mode == 'audio') {
+		var value = $jq("#audioCaptchaID").val();
+		$jq(".captchaAudio").show();
+		$jq(".captchaImage").hide();
+		$jq("#capchaID").val(value);
+		$jq("#captchaType").val('image');
+		var newSrc=$jq("#captcha_type_image").attr("src").replace("/images/captcha_voice.png", "/images/captcha_text.png");
+		$jq("#captcha_type_image").attr("src", newSrc);
+	} else {
+		var value = $jq("#imageCaptchaId").val();
+		$jq(".captchaAudio").hide();
+		$jq(".captchaImage").show();
+		$jq("#capchaID").val(value);
+		$jq("#captchaType").val('audio');
+		var newSrc=$jq("#captcha_type_image").attr("src").replace("/images/captcha_text.png","/images/captcha_voice.png");
+		$jq("#captcha_type_image").attr("src", newSrc);
+	}
+}
+
+ function showHelpWnd() {
+	 $jq("#captcha_help_container").show();
+ }
+ 
+ function hideHelpWnd() {
+	 $jq("#captcha_help_container").hide();
+ }
+ 
+ function imageCaptchaDisplayMode() {
+	 if($jq.browser.msie && ($jq.browser.version=="6.0" || $jq.browser.version=="7.0") ) {
+			$jq("#base64ImageId").hide();
+			$jq("#outputStreamImageId").show();
+		} else {
+			$jq("#base64ImageId").show();
+			$jq("#outputStreamImageId").hide();
+		}
+ }
+</script>
+
+
+<script language="JavaScript" src="./RegistrationPage2_files/pwpolicycheck.js"></script>
+
+<!-- begin Title and Steps table -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="middle">
+	<td><div class="pageTitle">Enter user information</div></td>
+	<td>&nbsp;&nbsp;</td>
+	<td align="right" nowrap="">
+		<!-- begin Steps table -->
+
+		
+
+
+
+
+<!-- begin Steps bounding table -->
+<table border="0" cellspacing="0" cellpadding="0" align="right">
+  <tbody><tr valign="middle">
+    <td class="steps">Steps:&nbsp;</td>
+
+    <td><img src="./RegistrationPage2_files/iconStepComplete.gif" alt="Step 1" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage2_files/iconStepComplete.gif" alt="Step 2" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage2_files/iconStepOn3.gif" alt="Step 3" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage2_files/iconStepOff4.gif" alt="Step 4" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage2_files/iconStepOff5.gif" alt="Step 5" width="29" height="25" border="0"></td>
+ 
+  </tr>
+</tbody></table>
+<!-- end Steps bounding table -->
+
+		<!-- end Steps table -->	
+	</td>
+</tr>
+</tbody></table>
+<!-- end Title and Steps table -->
+
+<!-- main content -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr valign="middle">
+	<td width="5"><img src="./RegistrationPage2_files/tabActiveLeftExtremeSm.gif" alt="" width="5" height="10" border="0"></td>
+	<td width="100%" background="./RegistrationPage2_files/tabActiveBg.gif" align="center" nowrap=""></td>
+	<td width="5"><img src="./RegistrationPage2_files/tabActiveRightSm.gif" alt="" width="5" height="10" border="0"></td>
+  </tr>
+
+  <tr valign="middle">
+	<td width="5" background="./RegistrationPage2_files/tabUnderLeftBg.gif"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="5" height="5" border="0"></td>
+	<td>
+	  <table border="0" cellpadding="3" cellspacing="0" width="100%">
+	    <tbody><tr>
+	      <td>&nbsp;</td>
+	      <td><div class="mpPortletDescript">Please input your user information into the fields below.</div>
+	  
+<form name="userInfoForm" method="post" action="./RegistrationPage2_files/RegistrationPage2.html">
+  <input type="hidden" name="cmd" value="REGISTER_LOGIN_INFO">
+  <input type="hidden" name="event" value="collect_login_info">
+  <input type="HIDDEN" name="CSRFRequestToken" value="5be12b2e-7acf-46eb-b8be-a5369b4856d8">
+  
+
+
+	  <input type="hidden" name="inviteType" value="3">
+	  <input type="hidden" name="langID" value="1">
+
+	  <input type="hidden" name="parentCompanyId" value="174602">
+
+
+	      
+	        <!-- begin User Info table -->
+	        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+	          <tbody><tr>
+	            <td class="sectionHeader" colspan="3">User sign-on information</td>
+	          </tr>
+	          
+	          <tr valign="top">
+	            <td class="tableDataTitle" width="19%" align="right">&nbsp;</td>
+	            <td class="tableDataTitleReq" width="1%"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+	            <td class="tableData" width="80%"><span class="req">* required fields</span></td>
+	          </tr>
+	          
+	          <tr valign="top">
+	            <td class="tableDataTitle" align="right"><span class="req"> * User ID:</span></td>
+	            <td class="tableDataTitleReq"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+	            <td class="tableDataUnderscore">
+	            
+	              <input type="text" id="ssoId" name="ssoId" value="" size="30" maxlength="100" tabindex="1">
+	              <div class="formInstructText">
+	                <span class="warning"><b>Note:</b></span>
+	                Userid must be at least 4 characters, and no more than 20 characters.  If your company uses a standard convention for issuing userids for internal applications, you may wish to adhere to the same convention and select the same id for simplicity.
+	              </div>
+		       
+	              
+	            </td>
+	          </tr>
+	          
+	          <tr valign="top">
+	            <td class="tableDataTitle" align="right"><span class="req">*Password:</span></td>
+	            <td class="tableDataTitleReq"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+	            <td class="tableDataUnderscore">
+	              <input type="password" autocomplete="off" name="pass1" id="pass1" size="30" tabindex="2">
+                    <div id="password_policies" class="x-tip x-layer x-tip-default" style="z-index: 19011; left: 457px; top: 224px; visibility: hidden;">
+                        <div class="x-tip-body x-tip-body-default x-tip-body-default" style="left: 0px; top: 0px;">
+                            <ul>
+                                
+                                    <li id="LENGTH">The password length must be between 6 and 99 characters.</li>
+                                
+                                    <li id="CHARACTER_CLASS">The password must contain at least 1 of the following character types: Numbers,Lower Case Letters,Upper Case Letters,Special Characters</li>
+                                
+                                    <li id="DISALLOWED_WORDS">The password cannot contain a word on the disallowed words list.</li>
+                                
+                                    <li id="HISTORY">The password cannot be same as last 0 previous one(s).</li>
+                                
+                            </ul>
+                            <div class="x-clear" role="presentation"></div>
+                        </div>
+                        <div class="x-tip-anchor x-tip-anchor-left" style="left: -10px; top: 47%; z-index: 19011;"></div>
+                    </div>	              
+	            </td>
+	          </tr>
+	          
+	          <tr valign="top">
+	            <td class="tableDataTitle" align="right"><span class="req">*Re-enter Password</span>:</td>
+	            <td class="tableDataTitleReq"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+	            <td class="tableDataUnderscore">
+	            	<input type="password" autocomplete="off" name="pass2" id="pass2" size="30" tabindex="3">
+	            	<div id="password_policies2" class="x-tip x-layer x-tip-default" style="z-index: 19011; left: 457px; top: 241px; visibility: hidden;">
+                        <div class="x-tip-body x-tip-body-default x-tip-body-default" style="left: 0px; top: 0px;">
+                            <ul>
+                                
+                                    <li id="pw_LENGTH">The password length must be between 6 and 99 characters.</li>
+                                
+                                    <li id="pw_CHARACTER_CLASS">The password must contain at least 1 of the following character types: Numbers,Lower Case Letters,Upper Case Letters,Special Characters</li>
+                                
+                                    <li id="pw_DISALLOWED_WORDS">The password cannot contain a word on the disallowed words list.</li>
+                                
+                                    <li id="pw_HISTORY">The password cannot be same as last 0 previous one(s).</li>
+                                
+                                    <li id="pw_RETRY_CONFIRM_RULE_ID">Confirm password should be same with password</li>
+                                
+                            </ul>
+                            <div class="x-clear" role="presentation"></div>
+                        </div>
+                        <div class="x-tip-anchor x-tip-anchor-left" style="left: -10px; top: 47%; z-index: 19011;"></div>
+                    </div>
+	            </td>
+	          </tr>
+	          
+	          
+	          
+		          	<tr valign="top">
+		            <td class="tableDataTitle" align="right"><span class="req"></span></td>
+		            <td class="tableDataUnderscore"><img width="2" height="1" border="0" alt="" src="./RegistrationPage2_files/spacer.gif"></td>
+		            <td class="tableDataUnderscore">
+		            	<div class="formInstructText">
+		            		 <br>
+			                &nbsp;<label><input id="show-answer" name="show-answer" type="checkbox">Unmask Security Answers</label>	
+			            </div>		            
+		            </td>
+		          </tr>	
+			      
+			        	
+			        	
+			        	
+			        	
+			        	
+			        	
+			        	
+			        	
+				        <tr valign="top">
+			            <td class="tableDataTitle" align="right">
+			            	<span class="req">
+			            	<!--liu updated for idm-750 -begin-->
+			            		
+			            			*Challenge Question 1:
+			            	<!--liu updated for idm-750 -end-->	
+			            		</span>
+			            	
+			            </td>
+			            <td class="tableDataTitleReq"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+			            <td class="tableDataUnderscore">
+					          	<select name="fixedQuestion1" style="width:250px" tabindex="3">
+					          	 	<option value="0">select one</option>
+					          	 	
+					          	 	
+					          	 		<option value="4">
+					          	 		 
+                                            What's the model of your first car?</option>
+					          	 		 
+					          	 		
+					          	 		
+					          	 	
+					          	 		<option value="5">
+					          	 		 
+                                            What high school did you graduate from?</option>
+					          	 		 
+					          	 		
+					          	 		
+					          	 	
+					          	 		<option value="6">
+					          	 		 
+                                            What's your favorite food?</option>
+					          	 		 
+					          	 		
+					          	 		
+					          	 	
+					          	</select>
+					          	<div id="customQuestionDiv1"> </div>
+			             </td>
+			          </tr>
+			          
+			          <tr valign="top">
+			          <!--liu updated for idm-750 -begin-->
+			            <td class="tableDataTitle" align="right"><span class="req">*Challenge Answer 1:</span></td>
+			           <!--liu updated for idm-750 -end-->
+			            <td class="tableDataTitleReq"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+			            <td class="tableDataUnderscore">
+						  <input type="password" autocomplete="off" value="" name="fixedAnswer1" data-typetoggle="#show-answer" size="45" maxlength="255" tabindex="4"><input type="text" size="45" name="fixedAnswer1-clone" tabindex="4" value="" style="display: none;"><br>
+						   <div class="formInstructText">
+			                <span class="warning"><b>Note:</b></span>
+			                To reset a forgotten password, your answer must match exactly what you input into the text box above. The answer will be case and punctuation sensitive. Both the question and the answer will be accessible to your Security Administrator 
+			              </div>
+			            </td>
+			          </tr>
+		          
+			        	
+			        	
+			        	
+			        	
+			        	
+			        	
+			        	
+			        	
+				        <tr valign="top">
+			            <td class="tableDataTitle" align="right">
+			            	<span class="req">
+			            	<!--liu updated for idm-750 -begin-->
+			            		
+			            			*Challenge Question 2:
+			            	<!--liu updated for idm-750 -end-->	
+			            		</span>
+			            	
+			            </td>
+			            <td class="tableDataTitleReq"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+			            <td class="tableDataUnderscore">
+					          	<select name="fixedQuestion2" style="width:250px" tabindex="5">
+					          	 	<option value="0">select one</option>
+					          	 	
+					          	 	
+					          	 		<option value="1">
+					          	 		 
+                                            What's your favorite pet's name?</option>
+					          	 		 
+					          	 		
+					          	 		
+					          	 	
+					          	 		<option value="2">
+					          	 		 
+                                            What's your mother's maiden name?</option>
+					          	 		 
+					          	 		
+					          	 		
+					          	 	
+					          	 		<option value="3">
+					          	 		 
+                                            What's your best friend's name?</option>
+					          	 		 
+					          	 		
+					          	 		
+					          	 	
+					          	</select>
+					          	<div id="customQuestionDiv2"> </div>
+			             </td>
+			          </tr>
+			          
+			          <tr valign="top">
+			          <!--liu updated for idm-750 -begin-->
+			            <td class="tableDataTitle" align="right"><span class="req">*Challenge Answer 2:</span></td>
+			           <!--liu updated for idm-750 -end-->
+			            <td class="tableDataTitleReq"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="1" border="0"></td>
+			            <td class="tableDataUnderscore">
+						  <input type="password" autocomplete="off" value="" name="fixedAnswer2" data-typetoggle="#show-answer" size="45" maxlength="255" tabindex="6"><input type="text" size="45" name="fixedAnswer2-clone" tabindex="6" value="" style="display: none;"><br>
+						   <div class="formInstructText">
+			                <span class="warning"><b>Note:</b></span>
+			                To reset a forgotten password, your answer must match exactly what you input into the text box above. The answer will be case and punctuation sensitive. Both the question and the answer will be accessible to your Security Administrator 
+			              </div>
+			            </td>
+			          </tr>
+		          
+	          
+	          
+	          
+	          
+	          <tr valign="top">
+	            <td class="tableDataUnderscore" colspan="4" align="center">&nbsp;<br>
+	              <input type="button" name="submitBn" value="continue registration" class="buttonWideOn" onclick="javascript:nextPage();" tabindex="7">
+	              &nbsp;&nbsp;&nbsp;
+	              <input type="button" value="Undo Changes" class="button" onclick="javascript:document.userInfoForm.reset();" tabindex="8">
+	              <br>&nbsp;
+	            </td>
+	          </tr>
+	        </tbody></table>
+	        <!-- end User Info table -->
+
+</form>
+		  </td>
+		  <td>&nbsp;</td>
+		</tr>
+	  </tbody></table>
+	  
+	</td>
+	<td width="5" background="./RegistrationPage2_files/tabUnderRightBg.gif"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="5" height="5" border="0"></td>
+  </tr>
+
+  <tr>
+	<td width="5" style="background:url(/images/tabUnderBottomLeftBg.gif) 0 0 no-repeat;width:5px;height:10px;"></td>
+	<td background="./RegistrationPage2_files/tabUnderBottomBg.gif"><img src="./RegistrationPage2_files/spacer.gif" alt="" width="2" height="10" border="0"></td>
+	<td width="5" style="background:url(/images/tabUnderBottomRightBg.gif) 0 0 no-repeat;width:5px;height:10px;"></td>
+  </tr>
+</tbody></table>
+
+<!-- main content end -->
+
+<!-- include the footer -->
+
+
+
+
+
+
+
+<!-- Footer Start -->
+
+
+		</td>
+		<!-- right gutter -->
+		<td>&nbsp;&nbsp;</td>
+	</tr>
+</tbody></table>
+
+<!-- begin Footer table -->
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tbody><tr>
+		<td nowrap="" align="right" valign="middle"><span class="textFooter">
+			2015&nbsp;Covisint Corporation. All Rights Reserved&nbsp;&nbsp;</span>
+		</td>
+	</tr>
+	
+	
+	<tr bgcolor="#DEDEDE">
+		<td nowrap="" align="right" valign="middle">
+		  <span class="textFooter">
+			Last Login Date:
+			
+		  </span>
+		</td>
+	</tr>
+
+</tbody></table>
+<!-- end Footer table -->
+
+
+
+
+
+
+
+<script language="javascript">
+
+	document.userInfoForm.ssoId.focus();
+
+
+</script>
+</body></html>

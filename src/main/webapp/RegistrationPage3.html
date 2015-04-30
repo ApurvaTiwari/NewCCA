@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0045)https://bit6-cca.identity.covapp.io/CommonReg -->
+<html class="x-border-box"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Covisint Connection and Administration</title>
+
+
+<link rel="SHORTCUT ICON" href="https://bit6-cca.identity.covapp.io/images/favicon.ico" type="image/ico">
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=5">
+
+
+<script language="JavaScript" src="./RegistrationPage3_files/commReg.js"></script>
+<!-- FOR HELP POPUP -->
+</head><body onload="docInit();" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" rightmargin="0" marginwidth="0" marginheight="0" class="x-body x-webkit x-chrome x-reset" id="ext-gen1009"><div id="overDiv" style="position:absolute; left:0px; top:0px; bottom:0px; right: 0px; visibility:hidden; z-index:1000;"></div>
+<script language="JavaScript" src="./RegistrationPage3_files/overlib.js"></script>
+<script language="JavaScript" src="./RegistrationPage3_files/floatHelp.js"></script>
+<script language="JavaScript" src="./RegistrationPage3_files/common.js"></script>
+<script language="JavaScript" src="./RegistrationPage3_files/prototype.js"></script>
+<script language="JavaScript" src="./RegistrationPage3_files/xbdhtml.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage3_files/dropdown_menu.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage3_files/jquery-1.7.1.min.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage3_files/jquery.ui.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage3_files/jquery.treeTable.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage3_files/jquery.ui.widget.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage3_files/jquery.ui.position.js"></script>
+<script language="JavaScript1.2" src="./RegistrationPage3_files/jquery.ui.dialog.js"></script>
+
+<script type="text/javascript">
+	jQuery.noConflict();
+</script>
+
+<link rel="stylesheet" type="text/css" href="./RegistrationPage3_files/ext-all.css">
+<script type="text/javascript" src="./RegistrationPage3_files/bootstrap.js"></script><script type="text/javascript" src="./RegistrationPage3_files/ext-all.js"></script>
+
+<!-- Example includes -->
+<script type="text/javascript" src="./RegistrationPage3_files/ccamenus.js"></script>
+<link rel="stylesheet" type="text/css" href="./RegistrationPage3_files/ccamenus.css">
+
+
+
+<link rel="stylesheet" href="./RegistrationPage3_files/commReg_default.css" type="text/css">
+
+
+	<!-- Custom CSS -->
+	<link href="https://bit6-cca.portal.covapp.io/documents/guest/css/login/css_override.css" rel="stylesheet">
+
+	<script type="text/javascript" language="JavaScript">
+
+      // REQUIRED for preventing Cross-Frame Spoofing - do not delete!
+      if (top != self)
+      {
+            top.location = self.location;
+      }
+      // END Cross-Frame Spoofing prevention
+
+
+      function doNothing() {
+            // nothing
+      }
+
+      var exImg=new Image(); exImg.src='/images/left_arrow_expand.gif'
+      var unImg=new Image(); unImg.src='/images/left_arrow_collapse.gif'
+
+      function docInit() {
+            
+      }
+
+
+      function helpWindow() {
+         //old: return window.open("https\x3A\x2F\x2Fportal.stg.covisint.com\x2Fweb\x2Fsupport\x2F", "help_win", "width=560,height=485,toolbar=0,location=0,directories=0,status=1,menuBar=1,scrollBars=1,resizable=1");
+         return window.open("https\x3A\x2F\x2Fportal.stg.covisint.com\x2Fweb\x2Fsupport\x2F");
+      }
+
+      function freqCodeWindow() {
+         return window.open("/frequencyCodes.html", "freq_win", "width=560,height=400,toolbar=0,location=0,directories=0,status=1,menuBar=1,scrollBars=1,resizable=1");
+      }
+
+      function openWin( windowURL, windowName, windowFeatures ) {
+      	return window.open( windowURL, windowName, windowFeatures ) ;
+      }
+
+      function logout(target) {
+	   document.LOGOUT.target.value = target;
+         document.LOGOUT.submit();
+      }
+
+      function contactUsWindow() {
+         return window.open("http\x3A\x2F\x2Fwww.covisint.com\x2Fgetintouch");
+      }
+
+      function doPost(action) {
+			document.convertGetToPostForm.action = action;
+			document.convertGetToPostForm.submit();
+		}
+
+
+function checkAll(checkboxName) {
+	var checkboxs = document.getElementsByName(checkboxName)
+	var hasUnSelect = false;
+
+	for (i=0; i<checkboxs.length; i++) {
+		if (checkboxs[i].checked == false) {
+			hasUnSelect = true;
+			break;
+		}
+	}
+
+	// select all
+	if (hasUnSelect == true) {
+		for (i=0; i<checkboxs.length; i++) {
+			if (checkboxs[i].checked == false) {
+				checkboxs[i].checked = true;
+			}
+		}
+	// deselect all
+	} else {
+		for (i=0; i<checkboxs.length; i++) {
+			if (checkboxs[i].checked == true) {
+				checkboxs[i].checked = false;
+			}
+		}
+	}
+}
+
+	  //val could be 1 or 0 (1 for checked)
+	  function selectAll(formObj, checkboxName, val) {
+		checkBoxList=formObj;
+		len = checkBoxList.elements.length;
+		var i=0;
+		for( i=0 ; i<len ; i++) {
+			if (checkBoxList.elements[i].name==checkboxName) {
+				checkBoxList.elements[i].checked=val;
+			}
+		}
+	  }
+
+      var profileHidden = true;
+      function menuProfile() {
+         var subMenu = getElt("profTop1","profSub1");
+         setEltVisibility(subMenu, (profileHidden)?"visible":"hidden");
+         getElt("profTop1").document.profileArrow.src= (profileHidden)?exImg.src:unImg.src;
+         profileHidden = !profileHidden;
+      }
+
+      var languageHidden = true;
+      function menuLanguage(locX, locY) {
+         var subMenu = getElt("langSub1");
+
+         if(is.nav) {
+           (subMenu, locX+8, locY+4);
+           setEltTop (subMenu,locY);
+           setEltLeft (subMenu,locX+8);
+         }
+
+         setEltVisibility(subMenu, (languageHidden)?"visible":"hidden");
+         //getElt("langTop1").document.languageArrow.src= (languageHidden)?exImg.src:unImg.src;
+         languageHidden = !languageHidden;
+      }
+
+   
+
+	function checkFormInputForEnglish(aForm) {
+		//Commented out the code which checks only for english chars in textbox/area
+		
+		return true;
+	}
+
+	// automatically break a long string into multiple lines,
+	// call this function when supportting HP_UX Operating System with Netscape 4.7.
+	function addNewLineChars (message) {
+  		formattedMsg = "";
+  		for (i=0; i<message.length; i++) {
+			formattedMsg += message.charAt(i);
+
+
+
+			if (i%80 == 0 && i != 0) {
+				if (message.charAt(i) == ' ') {
+					formattedMsg += "\n";
+				} else {
+					i++;
+					while (message.charAt(i) != ' ' && i<message.length) {
+						formattedMsg += message.charAt(i);
+						i++;
+					}
+					formattedMsg += "\n";
+				}
+			}
+
+
+  		}
+  		return formattedMsg;
+	}
+
+<!-- show/hide left nav function -->
+function doShowHide(divid1, divid2, divid3) {
+	var div1 = document.getElementById(divid1);
+	var div2 = document.getElementById(divid2);
+	var div3 = document.getElementById(divid3);
+	var cookieValue = getCookie('ccaLeftNav');
+	if (cookieValue == 'none') {
+		div1.style.display = 'block';
+		div2.style.display = 'block';
+		div3.style.display = 'none';
+		// set the cookie
+		writeCookie('ccaLeftNav', 'block');
+	} else {
+		div1.style.display = 'none';
+		div2.style.display = 'none';
+		div3.style.display = 'block';
+		writeCookie('ccaLeftNav', 'none');
+	}
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) {
+		writeCookie('ccaLeftNav', 'none');
+    	return 'none';
+    }
+  } else {
+    begin += 2;
+  }
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1) {
+    end = dc.length;
+  }
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function writeCookie(name, value) {
+	document.cookie = name+ "=" + escape(value);
+}
+
+function setIframeHeight(iframe) {
+  if(iframe.contentDocument) {
+	iframe.height = iframe.contentDocument.documentElement.scrollHeight+30; //FF 3.0.11, Opera 9.63, and Chrome
+  } else {
+	iframe.height = iframe.contentWindow.document.body.scrollHeight+30; //IE6, IE7 and Chrome
+  }
+	}
+</script>
+
+
+<form method="post" name="convertGetToPostForm" style="display:none">
+</form>
+
+
+
+<!-- ----- begin Covisint header table ----- -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<!-- begin Logout form -->
+	<form name="LOGOUT" method="POST" action="./RegistrationPage3_files/RegistrationPage3.html"></form>
+			<input type="HIDDEN" name="cmd" value="LOGOUT">
+			<input type="HIDDEN" name="target" value="">
+	
+	<!-- end Logout form -->
+
+	<!-- begin top Cov DarkLine -->
+	<tbody><tr class="DarkLine">
+		<td height="1" colspan="3"><img src="./RegistrationPage3_files/spacer.gif" width="1" height="1" border="0" alt=""></td>
+	</tr>
+	<!-- end top Cov DarkLine -->
+
+<!-- begin Cov tab row -->
+	<tr class="CovTabBar">
+		<!-- begin Covisint logo -->
+
+		<td width="1%"><a href="https://bit6-cca.identity.covapp.io/CommonReg/secured?cmd=HOME" title="Return to CCA Home Page"><img src="./RegistrationPage3_files/spacer.gif" width="1" height="36" border="0" alt="Covisint"></a></td>
+		<!-- end Covisint logo -->
+
+		<!-- begin tab cell -->
+		<td width="98%">
+				<!-- begin nav elements table -->
+				<table border="0" cellpadding="0" cellspacing="2" width="100%" id="headerTable">
+					<!-- begin visual spacer row -->
+				<!--	<tr>
+						<td height="4" colspan="2"><img src="/images/spacer.gif" width="1" height="6" border="0" alt=""></td>
+
+					</tr>
+				-->
+					<!-- begin visual spacer row -->
+					<!-- begin Cov tabs test-->
+					<tbody><tr valign="top">
+						<td nowrap=""><a href="https://bit6-cca.identity.covapp.io/CommonReg/secured?cmd=HOME" title="Covisint\x20Connection\x20and\x20Administration" class="CovTab"><!--b>Covisint Connection and Administration</b--></a></td>
+						<!-- begin Cov toplinks cell -->
+						<td align="right" class="toplinks_cell">
+								<!-- begin Cov toplinks table -->
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody><tr valign="middle">
+
+
+
+
+
+										<!-- HELP -->
+										
+
+										<td></td><td>
+
+                                        
+
+                                 </td><td>&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+								</tbody></table>
+								<!-- end Cov toplinks table -->
+						</td>
+						<!-- end Cov toplinks cell -->
+					</tr>
+
+					<!-- end Cov tabs -->
+						<!--tr><td colspan="2">&nbsp;</td></tr-->
+					<tr>
+						<!--td>&nbsp;</td-->
+						
+					</tr>				</tbody></table>
+				<!-- end nav elements table -->
+
+			</td>
+			<!-- end tab cell -->
+
+		<!-- begin visual spacer cell -->
+
+		<!--end visual spacer cell -->
+	</tr>
+	<!-- end Cov tab row -->
+
+	<!-- begin bottom Cov DarkLine -->
+	<tr class="DarkLine">
+		<td height="1" colspan="3"><img src="./RegistrationPage3_files/spacer.gif" width="1" height="1" border="0" alt=""></td>
+	</tr>
+	<!-- end bottom Cov DarkLine -->
+
+	<!-- begin Cov spacer bar -->
+
+<!-- 	<tr class="CovSpacerBar">
+		<td height="8" colspan="3"><img src="/images/spacer.gif" width="1" height="8" border="0" alt=""></td>
+	</tr>
+ -->
+	<!-- end Cov spacer bar -->
+
+</tbody></table>
+<!-- ----- end Covisint header table ----- -->
+
+
+
+
+
+
+
+
+
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tbody><tr valign="top">
+
+
+
+
+	    <td>&nbsp;&nbsp;</td>
+	    <td width="100%">
+
+
+<!--script>
+jQuery(document).ready(function(){
+	jQuery('body').fadeIn();
+});
+</script-->
+
+
+<!-- HEADER FILE ENDS -->
+
+
+
+
+<!-- MAIN CONTENT BEGINS -->
+
+<!-- begin Title and Steps table -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="middle">
+	<td><div class="pageTitle">review request and submit</div></td>
+	<td>&nbsp;&nbsp;</td>
+	<td align="right" nowrap="">
+		<!-- begin Steps table -->
+
+		
+
+
+
+
+<!-- begin Steps bounding table -->
+<table border="0" cellspacing="0" cellpadding="0" align="right">
+  <tbody><tr valign="middle">
+    <td class="steps">Steps:&nbsp;</td>
+
+    <td><img src="./RegistrationPage3_files/iconStepComplete.gif" alt="Step 1" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage3_files/iconStepComplete.gif" alt="Step 2" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage3_files/iconStepComplete.gif" alt="Step 3" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage3_files/iconStepComplete.gif" alt="Step 4" width="29" height="25" border="0"></td>
+
+    <td><img src="./RegistrationPage3_files/iconStepOn5.gif" alt="Step 5" width="29" height="25" border="0"></td>
+ 
+  </tr>
+</tbody></table>
+<!-- end Steps bounding table -->
+
+		<!-- end Steps table -->	
+	</td>
+</tr>
+</tbody></table>
+<!-- end Title and Steps table -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr valign="middle">
+	<td width="5"><img src="./RegistrationPage3_files/tabActiveLeftExtremeSm.gif" alt="" width="5" height="10" border="0"></td>
+	<td width="100%" background="./RegistrationPage3_files/tabActiveBg.gif" align="center" nowrap=""></td>
+	<td width="5"><img src="./RegistrationPage3_files/tabActiveRightSm.gif" alt="" width="5" height="10" border="0"></td>
+  </tr>
+
+  <tr valign="middle">
+	<td width="5" background="./RegistrationPage3_files/tabUnderLeftBg.gif"><img src="./RegistrationPage3_files/spacer.gif" alt="" width="5" height="5" border="0"></td>
+	<td>
+	  <table border="0" cellpadding="3" cellspacing="0" width="100%">
+	    <tbody><tr>
+	      <td>&nbsp;</td>
+	      <td><div class="mpPortletDescript">
+	        Before your registration request is submitted, please make sure the information below is correct.
+		    If you need to make changes, simply use the 'back' button to return a specific step number.
+		    </div>
+	      
+<form name="regForm" method="post" action="./RegistrationPage3_files/RegistrationPage3.html">
+	<input type="hidden" name="cmd" value="REGISTER_FINAL_CONFIRM">
+	<input type="hidden" name="event" value="save">
+	<input type="HIDDEN" name="CSRFRequestToken" value="5be12b2e-7acf-46eb-b8be-a5369b4856d8">
+    
+
+
+	  <input type="hidden" name="inviteType" value="3">
+	  <input type="hidden" name="langID" value="1">
+
+	  <input type="hidden" name="parentCompanyId" value="174602">
+
+
+
+		    <!-- begin Request table -->
+		    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+		      <tbody><tr>
+		      
+		        <td class="tableDataTitleReq" colspan="2"><span class="req">request reason*</span></td>
+		      
+		      </tr>
+		      
+		      <tr valign="top">
+		        <td class="tableDataUnderscore" width="20%">
+		          <textarea name="requestReason" cols="30" rows="3" wrap="soft" onkeydown="return checkMaxLength(this, event, 200)" onselect="storeSelection(this)"></textarea>
+		        </td>
+		        <td class="tableDataUnderscore">
+		          <div class="mpPortletDescript">A request reason may be entered at this time. Please enter any additional details that may assist the approving administrator in understanding your request.</div>
+		        </td>
+		      </tr>
+		    </tbody></table>
+		    <!-- end Request table -->
+
+	      
+		    
+	
+		    <p>
+		    <!-- begin User Information table -->
+		    </p><table width="100%" border="0" cellspacing="1" cellpadding="3">
+		      
+		      <tbody><tr>
+		        <td class="sectionHeader" colspan="4">user information</td>
+		      </tr>
+		      
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">User ID</td>
+		        <td class="tableDataUnderscore" width="35%">ESPARAGO</td>
+		        <td class="columnHeader" width="15%" align="right">Organization Name:</td>
+		        <td class="tableDataUnderscore" width="35%">BIT6-CCA</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Prefix</td>
+		        <td class="tableDataUnderscore" width="35%"></td>
+		        <td class="columnHeader" width="15%" align="right">Address 1</td>
+		        <td class="tableDataUnderscore" width="35%">25800 Northwestern Hwy</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">First Name</td>
+		        <td class="tableDataUnderscore" width="35%">Evan</td>
+		        <td class="columnHeader" width="15%" align="right">Address 2</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Middle Name</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		        <td class="columnHeader" width="15%" align="right">Address 3</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Last Name</td>
+		        <td class="tableDataUnderscore" width="35%">Sparago</td>
+		        <td class="columnHeader" width="15%" align="right">City/Region</td>
+		        <td class="tableDataUnderscore" width="35%">Southfield</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Job Title</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		        <td class="columnHeader" width="15%" align="right">State/Province</td>
+		        <td class="tableDataUnderscore" width="35%">MI</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Phone Number</td>
+		        <td class="tableDataUnderscore" width="35%">2489304519</td>
+		        <td class="columnHeader" width="15%" align="right">Postal Code</td>
+		        <td class="tableDataUnderscore" width="35%">48076</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Mobile Phone Number</td>
+		        <td class="tableDataUnderscore" width="35%">2489304519</td>
+		        <td class="columnHeader" width="15%" align="right">Country</td>
+		        <td class="tableDataUnderscore" width="35%">United States</td>
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Fax Number</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		        <td class="columnHeader" width="15%" align="right">Time Zone</td>
+		        <td class="tableDataUnderscore" width="35%">(GMT-05:00) Eastern Time (US &amp; Canada)</td>
+		      </tr>
+		      
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Email Address</td>
+		        <td class="tableDataUnderscore" width="35%">evan.sparago@covisint.com</td>
+		        
+		        <td class="columnHeader" width="15%" align="right">&nbsp;</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		        
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Wireless Email Address</td>
+		        <td class="tableDataUnderscore" width="35%"></td>
+		        
+		        <td class="columnHeader" width="15%" align="right">&nbsp;</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		        
+		      </tr>
+		      <tr>
+		        <td class="columnHeader" width="15%" align="right">Language Preference</td>
+		        <td class="tableDataUnderscore" width="35%">English</td>
+		        
+		        <td class="columnHeader" width="15%" align="right">&nbsp;</td>
+		        <td class="tableDataUnderscore" width="35%">&nbsp;</td>
+		        
+		      </tr>
+		      
+
+    <tr>
+
+	      		      
+		    </tr></tbody></table>
+		    <!-- end User Information table -->
+		    
+		    <p>
+		    <!-- begin Selected Services table -->
+		    </p><table width="100%" border="0" cellspacing="1" cellpadding="3">
+		      <tbody><tr>
+		      
+		      	<td class="sectionHeader">services available</td>
+		      
+		      </tr>
+
+						  
+                          
+						  
+                          
+		    </tbody></table>
+		    <!-- end Selected Services table -->
+		    
+		    
+		    <!-- begin Submit table -->
+		    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+		      <tbody><tr valign="top">
+		        <td class="tableDataUnderscore" align="center">
+		          &nbsp;<br>
+		          <input type="button" name="submitBn" value="submit registration" class="buttonOn" onclick="javascript:registerConfirm();">
+		          &nbsp;&nbsp;&nbsp;
+		          <input type="button" name="backBn" value="Back" class="button" onclick="javascript:registerBack();">
+		          <br>&nbsp;
+		        </td>
+		      </tr>
+		    </tbody></table>
+		    <!-- end Submit table -->
+</form>			    
+		    </td>
+		  <td>&nbsp;</td>
+		</tr>
+	  </tbody></table>
+	  
+	</td>
+	<td width="5" background="./RegistrationPage3_files/tabUnderRightBg.gif"><img src="./RegistrationPage3_files/spacer.gif" alt="" width="5" height="5" border="0"></td>
+</tr>
+
+<tr>
+	<td width="5" style="background:url(/images/tabUnderBottomLeftBg.gif) 0 0 no-repeat;width:5px;height:10px;"></td>
+	<td background="./RegistrationPage3_files/tabUnderBottomBg.gif"><img src="./RegistrationPage3_files/spacer.gif" alt="" width="2" height="10" border="0"></td>
+	<td width="5" style="background:url(/images/tabUnderBottomRightBg.gif) 0 0 no-repeat;width:5px;height:10px;"></td>
+</tr>
+</tbody></table>
+
+
+<!-- END MAIN CONTENT -->
+<!-- include the footer -->
+
+
+
+
+
+
+
+<!-- Footer Start -->
+
+
+		</td>
+		<!-- right gutter -->
+		<td>&nbsp;&nbsp;</td>
+	</tr>
+</tbody></table>
+
+<!-- begin Footer table -->
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tbody><tr>
+		<td nowrap="" align="right" valign="middle"><span class="textFooter">
+			2015&nbsp;Covisint Corporation. All Rights Reserved&nbsp;&nbsp;</span>
+		</td>
+	</tr>
+	
+	
+	<tr bgcolor="#DEDEDE">
+		<td nowrap="" align="right" valign="middle">
+		  <span class="textFooter">
+			Last Login Date:
+			
+		  </span>
+		</td>
+	</tr>
+
+</tbody></table>
+<!-- end Footer table -->
+
+
+
+
+
+
+
+<script language="javascript">
+
+function registerConfirm() {
+    
+    if(isWhitespace(document.regForm.requestReason.value)) {
+        document.regForm.requestReason.focus();
+		var msgs = 'The\x20following\x20fields\x20are\x20mandatory\x3A';
+		msgs += '\n\n';
+		msgs += 'request\x20reason';
+		msgs += '\n\n';
+		alert(msgs);
+		return;
+    }
+    	
+    document.regForm.submitBn.disabled = true;
+    document.regForm.submit();
+}
+
+function registerBack() {
+    
+    document.regForm.backBn.disabled = true;
+    document.regForm.event.value="back";
+    document.regForm.cmd.value="REGISTER_MORE_INFO";
+    document.regForm.submit();
+}
+</script></body></html>

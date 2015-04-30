@@ -1,0 +1,115 @@
+.com {
+	COLOR: #93a1a1
+}
+.lit {
+	COLOR: #195f91
+}
+.pun {
+	COLOR: #93a1a1
+}
+.opn {
+	COLOR: #93a1a1
+}
+.clo {
+	COLOR: #93a1a1
+}
+.fun {
+	COLOR: #dc322f
+}
+.str {
+	COLOR: #d14
+}
+.atv {
+	COLOR: #d14
+}
+.kwd {
+	COLOR: #1e347b
+}
+.linenums .tag {
+	COLOR: #1e347b
+}
+.typ {
+	COLOR: teal
+}
+.atn {
+	COLOR: teal
+}
+.dec {
+	COLOR: teal
+}
+.var {
+	COLOR: teal
+}
+.pln {
+	COLOR: #48484c
+}
+.prettyprint {
+	BORDER-TOP: #e1e1e8 1px solid; BORDER-RIGHT: #e1e1e8 1px solid; BORDER-BOTTOM: #e1e1e8 1px solid; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; PADDING-LEFT: 8px; BORDER-LEFT: #e1e1e8 1px solid; PADDING-RIGHT: 8px; BACKGROUND-COLOR: #f7f7f9
+}
+.linenums {
+	-moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0; -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0; box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0
+}
+OL.linenums {
+	MARGIN: 0px 0px 0px 33px
+}
+OL.linenums LI {
+	COLOR: #bebec5; PADDING-LEFT: 12px; LINE-HEIGHT: 18px; text-shadow: 0 1px 0 #fff
+}
+.content {
+	-webkit-animation: fadeIn 0.5s ease-in
+}
+.span3 {
+	TEXT-DECORATION: none; BORDER-TOP: #d6d6d6 1px solid; HEIGHT: 69px; BORDER-RIGHT: #d6d6d6 1px solid; WIDTH: 300px; BORDER-BOTTOM: #d6d6d6 1px solid; FLOAT: left; MARGIN: 0px 14px 20px 2px; BORDER-LEFT: #d6d6d6 1px solid; DISPLAY: inline; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 1px #fff; -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 1px #fff; box-shadow: inset 0 1px 0 #fff, 0 1px 1px #fff; -webkit-transform: translateZ(0)
+}
+.span3 A {
+	FONT-SIZE: 14px; TEXT-DECORATION: none; FONT-FAMILY: helvetica,arial,verdana,sans serif; COLOR: #000; TEXT-ALIGN: left
+}
+.span3 A:link {
+	FONT-SIZE: 14px; TEXT-DECORATION: none; HEIGHT: 69px; FONT-FAMILY: helvetica,arial,verdana,sans serif; WIDTH: 212px; TEXT-ALIGN: left
+}
+.span3 A:hover {
+	CURSOR: pointer; COLOR: #08c
+}
+
+@media Unknown    
+{
+.span3 A:hover {
+	CURSOR: pointer; COLOR: #000
+}
+    }
+.span3 .headline-icon {
+	HEIGHT: 51px; MARGIN-LEFT: 10px; MARGIN-TOP: 10px; pointer-events: none
+}
+.span3 .headline-icon IMG {
+	MARGIN-TOP: 0px; MARGIN-RIGHT: 10px; pointer-events: none
+}
+.span3 .headline-icon DIV.headline {
+	WIDTH: 200px
+}
+.span3 .headline-icon {
+	MARGIN-BOTTOM: 10px; HEIGHT: 50px; POSITION: relative; Z-INDEX: 1; DISPLAY: table
+}
+.span3 .headline-icon IMG {
+	FLOAT: left; MARGIN: 0px 10px 0px 0px
+}
+.span3 .headline-icon DIV.headline {
+	VERTICAL-ALIGN: middle; POSITION: absolute; Z-INDEX: 1; DISPLAY: table-cell; TOP: 50%
+}
+.span3 .headline-icon DIV.headline DIV {
+	OVERFLOW: hidden; MARGIN-BOTTOM: 0px; FONT-SIZE: 14px; FONT-FAMILY: helvetica,arial,verdana,sans serif; WIDTH: 200px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis; POSITION: relative; FONT-WEIGHT: normal; Z-INDEX: 1; TOP: -50%; -o-text-overflow: ellipsis
+}
+.span3 .headline-icon DIV.headline H1 {
+	MARGIN-BOTTOM: 0px; POSITION: relative; Z-INDEX: 1; TOP: -50%
+}
+.span3 .headline-icon P {
+	WIDTH: 735px; POSITION: relative; MARGIN: 5px 0px 0px; Z-INDEX: 1; TOP: -50%
+}
+.span3 {
+	MARGIN-BOTTOM: 20px
+}
+IMG {
+	BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px
+}
+.span3:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; FILTER: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#e5e5e5',GradientType=0 )
+}
