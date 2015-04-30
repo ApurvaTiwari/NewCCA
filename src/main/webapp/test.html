@@ -1,0 +1,1196 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0103)https://bit6-cca.identity.covapp.io/CommonReg -->
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>Covisint Connection and Administration</TITLE><LINK rel="SHORTCUT ICON" 
+type=image/ico href="https://bit6-cca.identity.covapp.io/images/favicon.ico">
+<META content=IE=5 http-equiv=X-UA-Compatible>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT language=JavaScript src="Registration_files/commReg.js"></SCRIPT>
+<!-- FOR HELP POPUP -->
+<SCRIPT language=JavaScript src="Registration_files/overlib.js"></SCRIPT>
+
+<SCRIPT language=JavaScript src="Registration_files/floatHelp.js"></SCRIPT>
+
+<SCRIPT language=JavaScript src="Registration_files/common.js"></SCRIPT>
+
+<SCRIPT language=JavaScript src="Registration_files/prototype.js"></SCRIPT>
+
+<SCRIPT language=JavaScript src="Registration_files/xbdhtml.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 
+src="Registration_files/dropdown_menu.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 
+src="Registration_files/jquery-1.7.1.min.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 src="Registration_files/jquery.ui.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 
+src="Registration_files/jquery.treeTable.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 
+src="Registration_files/jquery.ui.widget.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 
+src="Registration_files/jquery.ui.position.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 
+src="Registration_files/jquery.ui.dialog.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+	jQuery.noConflict();
+</SCRIPT>
+<LINK rel=stylesheet type=text/css href="Registration_files/ext-all.css">
+<SCRIPT type=text/javascript src="Registration_files/bootstrap.js"></SCRIPT>
+<!-- Example includes -->
+<SCRIPT type=text/javascript src="Registration_files/ccamenus.js"></SCRIPT>
+<LINK rel=stylesheet type=text/css href="Registration_files/ccamenus.css"><LINK 
+rel=stylesheet type=text/css href="Registration_files/commReg_default.css"><!-- Custom CSS --><LINK 
+rel=stylesheet 
+href="https://bit6-cca.portal.covapp.io/documents/guest/css/login/css_override.css">
+<SCRIPT language=JavaScript type=text/javascript>
+
+      // REQUIRED for preventing Cross-Frame Spoofing - do not delete!
+      if (top != self)
+      {
+            top.location = self.location;
+      }
+      // END Cross-Frame Spoofing prevention
+
+
+      function doNothing() {
+            // nothing
+      }
+
+      var exImg=new Image(); exImg.src='/images/left_arrow_expand.gif'
+      var unImg=new Image(); unImg.src='/images/left_arrow_collapse.gif'
+
+      function docInit() {
+            
+      }
+
+
+      function helpWindow() {
+         //old: return window.open("https\x3A\x2F\x2Fportal.stg.covisint.com\x2Fweb\x2Fsupport\x2F", "help_win", "width=560,height=485,toolbar=0,location=0,directories=0,status=1,menuBar=1,scrollBars=1,resizable=1");
+         return window.open("https\x3A\x2F\x2Fportal.stg.covisint.com\x2Fweb\x2Fsupport\x2F");
+      }
+
+      function freqCodeWindow() {
+         return window.open("/frequencyCodes.html", "freq_win", "width=560,height=400,toolbar=0,location=0,directories=0,status=1,menuBar=1,scrollBars=1,resizable=1");
+      }
+
+      function openWin( windowURL, windowName, windowFeatures ) {
+      	return window.open( windowURL, windowName, windowFeatures ) ;
+      }
+
+      function logout(target) {
+	   document.LOGOUT.target.value = target;
+         document.LOGOUT.submit();
+      }
+
+      function contactUsWindow() {
+         return window.open("http\x3A\x2F\x2Fwww.covisint.com\x2Fgetintouch");
+      }
+
+      function doPost(action) {
+			document.convertGetToPostForm.action = action;
+			document.convertGetToPostForm.submit();
+		}
+
+
+function checkAll(checkboxName) {
+	var checkboxs = document.getElementsByName(checkboxName)
+	var hasUnSelect = false;
+
+	for (i=0; i<checkboxs.length; i++) {
+		if (checkboxs[i].checked == false) {
+			hasUnSelect = true;
+			break;
+		}
+	}
+
+	// select all
+	if (hasUnSelect == true) {
+		for (i=0; i<checkboxs.length; i++) {
+			if (checkboxs[i].checked == false) {
+				checkboxs[i].checked = true;
+			}
+		}
+	// deselect all
+	} else {
+		for (i=0; i<checkboxs.length; i++) {
+			if (checkboxs[i].checked == true) {
+				checkboxs[i].checked = false;
+			}
+		}
+	}
+}
+
+	  //val could be 1 or 0 (1 for checked)
+	  function selectAll(formObj, checkboxName, val) {
+		checkBoxList=formObj;
+		len = checkBoxList.elements.length;
+		var i=0;
+		for( i=0 ; i<len ; i++) {
+			if (checkBoxList.elements[i].name==checkboxName) {
+				checkBoxList.elements[i].checked=val;
+			}
+		}
+	  }
+
+      var profileHidden = true;
+      function menuProfile() {
+         var subMenu = getElt("profTop1","profSub1");
+         setEltVisibility(subMenu, (profileHidden)?"visible":"hidden");
+         getElt("profTop1").document.profileArrow.src= (profileHidden)?exImg.src:unImg.src;
+         profileHidden = !profileHidden;
+      }
+
+      var languageHidden = true;
+      function menuLanguage(locX, locY) {
+         var subMenu = getElt("langSub1");
+
+         if(is.nav) {
+           (subMenu, locX+8, locY+4);
+           setEltTop (subMenu,locY);
+           setEltLeft (subMenu,locX+8);
+         }
+
+         setEltVisibility(subMenu, (languageHidden)?"visible":"hidden");
+         //getElt("langTop1").document.languageArrow.src= (languageHidden)?exImg.src:unImg.src;
+         languageHidden = !languageHidden;
+      }
+
+   
+
+	function checkFormInputForEnglish(aForm) {
+		//Commented out the code which checks only for english chars in textbox/area
+		
+		return true;
+	}
+
+	// automatically break a long string into multiple lines,
+	// call this function when supportting HP_UX Operating System with Netscape 4.7.
+	function addNewLineChars (message) {
+  		formattedMsg = "";
+  		for (i=0; i<message.length; i++) {
+			formattedMsg += message.charAt(i);
+
+
+
+			if (i%80 == 0 && i != 0) {
+				if (message.charAt(i) == ' ') {
+					formattedMsg += "\n";
+				} else {
+					i++;
+					while (message.charAt(i) != ' ' && i<message.length) {
+						formattedMsg += message.charAt(i);
+						i++;
+					}
+					formattedMsg += "\n";
+				}
+			}
+
+
+  		}
+  		return formattedMsg;
+	}
+
+<!-- show/hide left nav function -->
+function doShowHide(divid1, divid2, divid3) {
+	var div1 = document.getElementById(divid1);
+	var div2 = document.getElementById(divid2);
+	var div3 = document.getElementById(divid3);
+	var cookieValue = getCookie('ccaLeftNav');
+	if (cookieValue == 'none') {
+		div1.style.display = 'block';
+		div2.style.display = 'block';
+		div3.style.display = 'none';
+		// set the cookie
+		writeCookie('ccaLeftNav', 'block');
+	} else {
+		div1.style.display = 'none';
+		div2.style.display = 'none';
+		div3.style.display = 'block';
+		writeCookie('ccaLeftNav', 'none');
+	}
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) {
+		writeCookie('ccaLeftNav', 'none');
+    	return 'none';
+    }
+  } else {
+    begin += 2;
+  }
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1) {
+    end = dc.length;
+  }
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function writeCookie(name, value) {
+	document.cookie = name+ "=" + escape(value);
+}
+
+function setIframeHeight(iframe) {
+  if(iframe.contentDocument) {
+	iframe.height = iframe.contentDocument.documentElement.scrollHeight+30; //FF 3.0.11, Opera 9.63, and Chrome
+  } else {
+	iframe.height = iframe.contentWindow.document.body.scrollHeight+30; //IE6, IE7 and Chrome
+  }
+	}
+</SCRIPT>
+
+<FORM style="DISPLAY: none" method=post name=convertGetToPostForm></FORM>
+<META name=GENERATOR content="MSHTML 11.00.9600.17690"></HEAD>
+<BODY onload=docInit(); leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 marginheight="0" marginwidth="0">
+<DIV id=overDiv 
+style="RIGHT: 0px; POSITION: absolute; LEFT: 0px; Z-INDEX: 1000; TOP: 0px; VISIBILITY: hidden; BOTTOM: 0px"></DIV><!-- ----- begin Covisint header table ----- -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0><!-- begin Logout form -->
+  <FORM method=post name=LOGOUT action=/CommonReg><INPUT type=hidden 
+  value=LOGOUT name=cmd> <INPUT type=hidden name=target> </FORM><!-- end Logout form --><!-- begin top Cov DarkLine -->
+  <TBODY>
+  <TR class=DarkLine>
+    <TD height=1 colSpan=3><IMG border=0 alt="" 
+      src="Registration_files/spacer.gif" width=1 height=1></TD></TR><!-- end top Cov DarkLine --><!-- begin Cov tab row -->
+  <TR class=CovTabBar><!-- begin Covisint logo -->
+    <TD width="1%"><A title="Return to CCA Home Page" 
+      href="https://bit6-cca.identity.covapp.io/CommonReg/secured?cmd=HOME"><IMG 
+      border=0 alt=Covisint src="Registration_files/spacer.gif" width=1 
+      height=36></A></TD><!-- end Covisint logo --><!-- begin tab cell -->
+    <TD width="98%"><!-- begin nav elements table -->
+      <TABLE id=headerTable cellSpacing=2 cellPadding=0 width="100%" border=0><!-- begin visual spacer row --><!--	<tr>
+						<td height="4" colspan="2"><img src="/images/spacer.gif" width="1" height="6" border="0" alt=""></td>
+
+					</tr>
+				--><!-- begin visual spacer row --><!-- begin Cov tabs test-->
+        <TBODY>
+        <TR vAlign=top>
+          <TD noWrap><A title=Covisint\x20Connection\x20and\x20Administration 
+            class=CovTab 
+            href="https://bit6-cca.identity.covapp.io/CommonReg/secured?cmd=HOME"><!--b>Covisint Connection and Administration</b--></A></TD><!-- begin Cov toplinks cell -->
+          <TD class=toplinks_cell align=right><!-- begin Cov toplinks table -->
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR vAlign=middle><!-- HELP -->
+                <TD>
+                <TD>
+                <TD>&nbsp;&nbsp;&nbsp;</TD></TR></TBODY></TABLE><!-- end Cov toplinks table --></TD><!-- end Cov toplinks cell --></TR><!-- end Cov tabs --><!--tr><td colspan="2">&nbsp;</td></tr-->
+        <TR><!--td>&nbsp;</td--></TR></TBODY></TABLE><!-- end nav elements table --></TD><!-- end tab cell --><!-- begin visual spacer cell --><!--end visual spacer cell --></TR><!-- end Cov tab row --><!-- begin bottom Cov DarkLine -->
+  <TR class=DarkLine>
+    <TD height=1 colSpan=3><IMG border=0 alt="" 
+      src="Registration_files/spacer.gif" width=1 height=1></TD></TR><!-- end bottom Cov DarkLine --><!-- begin Cov spacer bar --><!-- 	<tr class="CovSpacerBar">
+		<td height="8" colspan="3"><img src="/images/spacer.gif" width="1" height="8" border="0" alt=""></td>
+	</tr>
+ --><!-- end Cov spacer bar --></TBODY></TABLE><!-- ----- end Covisint header table ----- -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD>&nbsp;&nbsp;</TD>
+    <TD width="100%"><!--script>
+jQuery(document).ready(function(){
+	jQuery('body').fadeIn();
+});
+</script--><!-- HEADER FILE ENDS -->
+      <SCRIPT language=javascript>
+var countries = {};
+var $jq=jQuery.noConflict();
+add_country('AC', '+247', '1234');
+add_country('AF', '+93', '72-123-4567');
+add_country('AL', '+355', '72-123-4567');
+add_country('DZ', '+213', '72-123-4567 72-123-456');
+add_country('AS', '+1', '123-456-7890');
+add_country('AD', '+376', '123-456');
+add_country('AO', '+244', '123-456-7890');
+add_country('AI', '+1', '123-456-7890');
+add_country('AG', '+1', '123-456-7890');
+add_country('AN', '+599', '9-1234-222-333');
+add_country('AR', '+54', '9-11-2345-6789');
+add_country('AM', '+374', '933-33-333 92-333-333');
+add_country('AW', '+297', '333-333');
+add_country('AU', '+61', '4-1234-5678');
+add_country('AT', '+43', '612-345-6789');
+add_country('AZ', '+994', '22-333-4444');
+add_country('BS', '+1', '123-456-7890');
+add_country('BH', '+973', '1234-56789');
+add_country('BD', '+880', '12-4444-4444');
+add_country('BB', '+1', '123-456-7890');
+add_country('BY', '+375', '12-123-4567 123-456-789');
+add_country('BE', '+32', '400-123-456');
+add_country('BZ', '+501', '123-4567');
+add_country('BJ', '+229', '1234-5678 12-345-678');
+add_country('BM', '+1', '123-456-7890');
+add_country('BT', '+975', '12-123-1234 1-234-567');
+add_country('BO', '+591', '1234-5678 1-234-5678');
+add_country('BA', '+387', '12-345-678');
+add_country('BW', '+267', '1234-1234 123-4567');
+add_country('BR', '+55', '11-2345-6789');
+add_country('BN', '+673', '123-4567');
+add_country('BG', '+359', '43-123-1456');
+add_country('BF', '+226', '12-123-123');
+add_country('BI', '+257', '1234-4567');
+add_country('KH', '+855', '12-333-456');
+add_country('CM', '+237', '1234-5678');
+add_country('CA', '+1', '204-234-5678');
+add_country('CV', '+238', '123-4567');
+add_country('KY', '+1', '123-456-7890');
+add_country('CF', '+236', '12-23-45-56');
+add_country('TD', '+235', '12-23-45-56');
+add_country('CL', '+56', '2-123-4567');
+add_country('CN', '+86', '130-1234-5678');
+add_country('CX', '+61', '');
+add_country('CC', '+61', '');
+add_country('CO', '+57', '300-123-4567');
+add_country('KM', '+269', '123-4567');
+add_country('CD', '+243', '');
+add_country('CK', '+682', '12-345');
+add_country('CR', '+506', '1234-5678');
+add_country('CI', '+225', '1234-5678');
+add_country('HR', '+385', '12-345-6789');
+add_country('CU', '+53', '5-12-3562 123-2356');
+add_country('CY', '+357', '357-99-816999');
+add_country('CZ', '+420', '212-345-678');
+add_country('DK', '+45', '32-12-34-56');
+add_country('DJ', '+253', '12-34-56');
+add_country('DM', '+1', '123-456-7890');
+add_country('DO', '+1', '123-456-7890');
+add_country('TL', '+670', '123-4567');
+add_country('EC', '+593', '');
+add_country('EG', '+20', '10-456-7890');
+add_country('SV', '+503', '1234-1234');
+add_country('GQ', '+240', '123-456-789-');
+add_country('ER', '+291', '1-234-567');
+add_country('EE', '+372', '1-123-4567, 123-4567');
+add_country('ET', '+251', '12-345-6789');
+add_country('FO', '+298', '123-456');
+add_country('FJ', '+679', '123-4567');
+add_country('FI', '+358', '50-123-4567');
+add_country('FR', '+33', '600-123-456');
+add_country('GF', '+594', '123-456-789');
+add_country('PF', '+689', '123-456');
+add_country('GA', '+241', '12-123-456, 123-456');
+add_country('GM', '+220', '123-4567');
+add_country('GE', '+995', '8-32-12-34-56');
+add_country('DE', '+49', '100-1234-5678');
+add_country('GH', '+233', '12-123-4567');
+add_country('GI', '+350', '1234-5678');
+add_country('GR', '+30', '21-2345-6789');
+add_country('GL', '+299', '123-456');
+add_country('GD', '+1', '123-456-7890');
+add_country('GP', '+590', '123-12-34-56');
+add_country('GU', '+1', '123-456-4789');
+add_country('GT', '+502', '1234-5678');
+add_country('GG', '+44', '');
+add_country('GN', '+224', '1234-4567');
+add_country('GW', '+245', '123-4567');
+add_country('GY', '+592', '123-4567');
+add_country('HT', '+509', '1234-5678');
+add_country('HN', '+504', '1234-5678');
+add_country('HK', '+852', '2123-4567');
+add_country('HU', '+36', '1-234-5678');
+add_country('IS', '+354', '123-456-789, 123-4567');
+add_country('IN', '+91', '011-2345-6789');
+add_country('ID', '+62', '061-2345678');
+add_country('IR', '+98', '123-456-4789');
+add_country('IQ', '+964', '123-456-7894, 12-123-456');
+add_country('IE', '+353', '80-123 4567');
+add_country('IM', '+44', '');
+add_country('IL', '+972', '50-123-4567');
+add_country('IT', '+39', '300 123 4567');
+add_country('JM', '+1', '123-456-7890');
+add_country('JP', '+81', '3-9999-9999');
+add_country('JE', '+44', '');
+add_country('JO', '+962', '1-1234-5678, 1-123-4567');
+add_country('KZ', '+7', '123-345-6789');
+add_country('KE', '+254', '123-456-789');
+add_country('KI', '+686', '12-345');
+add_country('KW', '+965', '1234-5678');
+add_country('KG', '+996', '123-456-789');
+add_country('LA', '+856', '12-23-45-56, 12-345-568');
+add_country('LV', '+371', '61-234-567');
+add_country('LB', '+961', '70-123-456');
+add_country('LS', '+266', '12-234-456');
+add_country('LR', '+231', '1-234-256, 1-234-5698');
+add_country('LY', '+218', '12-235-689');
+add_country('LI', '+423', '123-4567');
+add_country('LT', '+370', '8-312-34-567');
+add_country('LU', '+352', '1-2356-4567, 123-456-789');
+add_country('MO', '+853', '1234-4567');
+add_country('MK', '+389', '70-221-2345');
+add_country('MG', '+261', '12-23-456-45');
+add_country('MW', '+265', '12-256-4578');
+add_country('MY', '+60', '03-1234 5678');
+add_country('MV', '+960', '123-4567');
+add_country('ML', '+223', '1234-5678');
+add_country('MT', '+356', '1234-5678');
+add_country('MH', '+692', '123-5678');
+add_country('MQ', '+596', '123-12-45-56');
+add_country('MR', '+222', '1234-5678');
+add_country('MU', '+230', '123-5678');
+add_country('YT', '+262', '123-412-678');
+add_country('MX', '+52', '1 222 123 4567');
+add_country('FM', '+691', '123-5678');
+add_country('MD', '+373', '123-14-678');
+add_country('MC', '+377', '1234-5678, 1234-56781');
+add_country('MN', '+976', '1234-5678');
+add_country('ME', '+382', '12-134-578');
+add_country('MS', '+1', '123-456-5678');
+add_country('MA', '+212', '60 123-4567');
+add_country('MZ', '+258', '12-145-5678');
+add_country('MM', '+95', '1-123-4567');
+add_country('NA', '+264', '23-456-7894, 12-345-567');
+add_country('NR', '+674', '123-5678');
+add_country('NP', '+977', '12-1234-5678, 12-345-678');
+add_country('NL', '+31', '6 1234 5678');
+add_country('NC', '+687', '123-567');
+add_country('NZ', '+64', '2-234 5678');
+add_country('NI', '+505', '');
+add_country('NE', '+227', '1234-5678');
+add_country('NG', '+234', '70-1234-5678');
+add_country('NU', '+683', '1234');
+add_country('NF', '+6723', '23-123');
+add_country('KP', '+850', '');
+add_country('MP', '+1-670', '');
+add_country('NO', '+47', '21 23 45 67');
+add_country('OM', '+968', '23 123456');
+add_country('PK', '+92', '(30) 12345678');
+add_country('PW', '+680', '123-4567');
+add_country('PS', '+970', '12-356-4567');
+add_country('PA', '+507', '1234-5678');
+add_country('PG', '+675', '123-45-567, 123-5678');
+add_country('PY', '+595', '123-456-567, 34-5678');
+add_country('PE', '+51', '123-456-678');
+add_country('PH', '+63', '900-123-4567');
+add_country('PL', '+48', '12 345 67 89');
+add_country('PT', '+351', '212-345-678');
+add_country('PR', '+1', '700-123-4567');
+add_country('QA', '+974', '70-123-456');
+add_country('RE', '+262', '701-123-456');
+add_country('RO', '+40', '700-123-456');
+add_country('RU', '+7', '8-301-123-45-67');
+add_country('RW', '+250', '70-123-456');
+add_country('PM', '+508', '');
+add_country('SH', '+290', '12-45');
+add_country('KN', '+1', '700-123-4560');
+add_country('LC', '+1', '700-123-4560');
+add_country('VC', '+1', '700-123-4560');
+add_country('WS', '+685', '700-4560, 70-4560');
+add_country('SM', '+378', '700-123-4560');
+add_country('ST', '+239', '70-45601');
+add_country('SA', '+966', '5-1234-5678');
+add_country('SN', '+221', '70-123-4560');
+add_country('RS', '+381', '60 123 456');
+add_country('SC', '+248', '7-12-45');
+add_country('SL', '+232', '70-123-456');
+add_country('SG', '+65', '6123-4567');
+add_country('SK', '+421', '900-123-456');
+add_country('SI', '+386', '30-123-456');
+add_country('SB', '+677', '70-12-45');
+add_country('SO', '+252', '70-123-456');
+add_country('ZA', '+27', '70-123-4567');
+add_country('KR', '+82', '22123456');
+add_country('GE', '+995', '8-32-12-34-56');
+add_country('ES', '+34', '812-34-56-78');
+add_country('LK', '+94', '70-123-4560');
+add_country('SD', '+249', '70-123-4560');
+add_country('SR', '+597', '700-4560');
+add_country('SJ', '+47', '');
+add_country('SZ', '+268', '7001-4560');
+add_country('SE', '+46', '700-12 34 56');
+add_country('CH', '+41', '21 234 56 78');
+add_country('SY', '+963', '70-123-4560');
+add_country('TJ', '+992', '700-123-456, 7001-23-456');
+add_country('TZ', '+255', '700-123-456');
+add_country('TW', '+886', '2-123-4567');
+add_country('TH', '+66', '2-123-4567');
+add_country('TG', '+228', '70-01-23-45');
+add_country('TK', '+690', '1234');
+add_country('TO', '+676', '12-456');
+add_country('TT', '+1', '700-123-4560');
+add_country('TN', '+216', '71-234-567');
+add_country('TR', '+90', '212-345 6789');
+add_country('TM', '+993', '70-123-456');
+add_country('TC', '+1', '700-123-4560');
+add_country('TV', '+688', '70-123');
+add_country('UG', '+256', '70-123-4560');
+add_country('UA', '+380', '48 234-56-78');
+add_country('AE', '+971', '70-123-4560, 7-123-4560');
+add_country('GB', '+44', '121-234-5678');
+add_country('US', '+1', '201-234-5678');
+add_country('UY', '+598', '7-123-4560');
+add_country('UZ', '+998', '70-123-4560');
+add_country('VU', '+678', '70-560, 700-4560');
+add_country('VA', '+379', '700-123-4560');
+add_country('VE', '+58', '');
+add_country('VN', '+84', '100-1234-567');
+add_country('VG', '+1', '700-123-4560');
+add_country('WF', '+681', '700-123');
+add_country('YE', '+967', '700-123-456');
+add_country('ZM', '+260', '70-123-4560');
+add_country('ZW', '+263', '70-123-4560');
+
+function add_country(code, callingCode, example) {
+    countries[code] = {
+    'calling_code': callingCode,
+    'example': example
+    };
+} 
+$jq(document).ready(function(){	
+	var countryInut = $jq("#countryCode").val();
+	if(jQuery.type(countryInut)!= "undefined"){
+	setHelpText();
+    $jq("#countryCode").change(function() {
+        $jqcountry = $jq("#countryCode").val();
+        if ($jqcountry.length > 1) {
+			setHelpText();
+        }
+    });
+	}
+});
+
+function setHelpText(){
+	var countryCode = $jq("#countryCode").val();
+	if (typeof(countryCode) == "undefined" || countryCode == "") {
+		countryCode = $jq("#userAccountCountry").val();
+	}
+	if (typeof(countryCode) != "undefined") {
+	var selectedCountry = countries[countryCode];
+	if (selectedCountry != null) {
+	  if (typeof($jq("#phoneCountryCode")) !="undefined") {
+	    $jq("#phoneCountryCode").text(selectedCountry.calling_code);
+	  }
+	  if (typeof($jq("#mobilePhoneCountryCode")) !="undefined") {
+	    $jq("#mobilePhoneCountryCode").text(selectedCountry.calling_code);
+	  }
+	  if ($jq("#mobilePhoneNumber").attr("type")!="hidden" && typeof($jq("#mobilePhoneHelp")) !="undefined") {
+	    $jq("#mobilePhoneHelp").text('Ex:'+selectedCountry.calling_code+' '+selectedCountry.example);
+	  }
+	  if ($jq("#phoneNumber").attr("type")!="hidden" && typeof(
+	    $jq("#phoneHelp")) !="undefined") {$jq("#phoneHelp").text('Ex:'+selectedCountry.calling_code+' '+selectedCountry.example);
+	  }
+	} else {
+	  if (typeof($jq("#phoneCountryCode")) !="undefined") {
+		$jq("#phoneCountryCode").text('+');
+	  }
+	  if (typeof($jq("#mobilePhoneCountryCode")) !="undefined") {
+		$jq("#mobilePhoneCountryCode").text('+');
+	  }
+	  if ($jq("#mobilePhoneNumber").attr("type")!="hidden" && typeof($jq("#mobilePhoneHelp")) !="undefined") {
+		$jq("#mobilePhoneHelp").text('');
+	  }
+	  if ($jq("#phoneNumber").attr("type")!="hidden" && typeof(
+		$jq("#phoneHelp")) !="undefined") {$jq("#phoneHelp").text('');
+	  }
+	}
+		$jq("#phoneCountryCodeSectionId").show();
+		$jq("#mobilePhoneCountryCodeSectionId").show();
+	} else {
+		$jq("#phoneCountryCodeSectionId").hide();
+		$jq("#phoneHelp").text('');
+		$jq("#mobilePhoneCountryCodeSectionId").hide();
+		$jq("#mobilePhoneHelp").text('');
+	}	
+}
+
+</SCRIPT>
+<!-- begin tooltip script -->
+      <SCRIPT language=JavaScript1.2 type=text/javascript 
+      src="Registration_files/tooltip15.js"></SCRIPT>
+<!-- end tooltip script -->
+      <SCRIPT language=javascript>
+function nextPage() {
+	if (checkFormInputForEnglish(document.userInfoForm)) {
+		document.userInfoForm.submitBn.disabled = true;
+		document.userInfoForm.submit();
+	}
+}
+
+var win;
+function openWindow() {
+	if(win != null)
+		win.close();
+       win = window.open('/CommonReg?cmd=PASSWORD_RULES', 'PasswordRules', 'location=no,menubar=no,toolbar=no,width=500,height=280,resizable=yes');
+   	win.focus();
+}
+</SCRIPT>
+<!-- begin Title and Steps table -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=middle>
+          <TD>
+            <DIV class=pageTitle>Enter user information</DIV></TD>
+          <TD>&nbsp;&nbsp;</TD>
+          <TD noWrap align=right><!-- begin Steps table --><!-- begin Steps bounding table -->
+            <TABLE cellSpacing=0 cellPadding=0 align=right border=0>
+              <TBODY>
+              <TR vAlign=middle>
+                <TD class=steps>Steps:&nbsp;</TD>
+                <TD><IMG border=0 alt="Step 1" 
+                  src="Registration_files/iconStepComplete.gif" width=29 
+                  height=25></TD>
+                <TD><IMG border=0 alt="Step 2" 
+                  src="Registration_files/iconStepComplete.gif" width=29 
+                  height=25></TD>
+                <TD><IMG border=0 alt="Step 3" 
+                  src="Registration_files/iconStepOn3.gif" width=29 
+height=25></TD>
+                <TD><IMG border=0 alt="Step 4" 
+                  src="Registration_files/iconStepOff4.gif" width=29 
+                height=25></TD>
+                <TD><IMG border=0 alt="Step 5" 
+                  src="Registration_files/iconStepOff5.gif" width=29 
+                height=25></TD></TR></TBODY></TABLE><!-- end Steps bounding table --><!-- end Steps table --></TD></TR></TBODY></TABLE><!-- end Title and Steps table --><!-- main content -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=middle>
+          <TD width=5><IMG border=0 alt="" 
+            src="Registration_files/tabActiveLeftExtremeSm.gif" width=5 
+            height=10></TD>
+          <TD background=Registration_files/tabActiveBg.gif width="100%" noWrap 
+          align=center></TD>
+          <TD width=5><IMG border=0 alt="" 
+            src="Registration_files/tabActiveRightSm.gif" width=5 
+        height=10></TD></TR>
+        <TR vAlign=middle>
+          <TD background=Registration_files/tabUnderLeftBg.gif width=5><IMG 
+            border=0 alt="" src="Registration_files/spacer.gif" width=5 
+          height=5></TD>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD>
+                  <DIV class=mpPortletDescript>Please input your user 
+                  information into the fields below. 
+                  <FORM method=post name=userInfoForm action=/CommonReg><INPUT 
+                  type=hidden value=REGISTER_USER_INFO name=cmd> <INPUT 
+                  type=hidden value=collect_user_info name=event> <INPUT 
+                  type=hidden value=2b35f2b1-7dfc-4eac-abe0-d76e78fdf3d6 
+                  name=CSRFRequestToken> <INPUT type=hidden value=3 
+                  name=inviteType> <INPUT type=hidden value=1 name=langID> 
+                  <INPUT type=hidden value=174602 name=parentCompanyId> <!-- begin User Info table -->
+                  <TABLE cellSpacing=1 cellPadding=3 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=sectionHeader colSpan=3>user information</TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle width="19%" 
+                      align=right>&nbsp;</TD>
+                      <TD class=tableDataTitleReq width="1%"><IMG border=0 
+                        alt="" src="Registration_files/spacer.gif" width=2 
+                        height=1></TD>
+                      <TD class=tableData width="80%"><SPAN 
+                        class=req>*required fields</SPAN></TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right>Organization 
+                      Name:</TD>
+                      <TD class=tableDataTitle><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore>BIT6-CCA </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle 
+                        align=right>Prefix:</SPAN></STRONG></TD>
+                      <TD class=tableDataTitle><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><!--input type="text" name="title" size="30" maxlength="30" value=""--><INPUT 
+                        id=null maxLength=30 size=30 name=title> &nbsp;<SPAN 
+                        id=titleSamplesId>(Mr., Mrs., Ms., Miss)</SPAN></TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*First Name:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=150 size=30 name=firstName> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right>Middle 
+                        Name:</SPAN></STRONG></TD>
+                      <TD class=tableDataTitle><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=60 size=30 name=middleName> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Last Name:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=150 size=30 name=lastName> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right>Job 
+                        Title:</SPAN></STRONG></TD>
+                      <TD class=tableDataTitle><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=60 size=30 name=jobTitle> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Address 1:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=255 size=30 value="25800 Northwestern Hwy" 
+                        name=address1> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right>Address 
+                        2:</SPAN></STRONG></TD>
+                      <TD class=tableDataUnderscore><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=255 size=30 name=address2> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right>Address 
+                        3:</SPAN></STRONG></TD>
+                      <TD class=tableDataUnderscore><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=255 size=30 name=address3> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*City/Region:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=60 size=30 value=Southfield name=cityRegion> 
+                      </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*State/Province:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=60 size=30 value=MI name=stateProvince> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Postal Code:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=10 size=30 value=48076 name=postalCode> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Country:</SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><SELECT id=countryCode 
+                        class=countryCode name=countryCode> <OPTION 
+                          value=AF>Afghanistan</OPTION> <OPTION 
+                          value=AL>Albania</OPTION> <OPTION 
+                          value=DZ>Algeria</OPTION> <OPTION value=AS>American 
+                          Samoa</OPTION> <OPTION value=AD>Andorra</OPTION> 
+                          <OPTION value=AO>Angola</OPTION> <OPTION 
+                          value=AI>Anguilla</OPTION> <OPTION 
+                          value=AQ>Antarctica</OPTION> <OPTION value=AG>Antigua 
+                          and Barbuda</OPTION> <OPTION 
+                          value=AR>Argentina</OPTION> <OPTION 
+                          value=AM>Armenia</OPTION> <OPTION 
+                          value=AW>Aruba</OPTION> <OPTION 
+                          value=AU>Australia</OPTION> <OPTION 
+                          value=AT>Austria</OPTION> <OPTION 
+                          value=AZ>Azerbaijan</OPTION> <OPTION 
+                          value=BS>Bahamas</OPTION> <OPTION 
+                          value=BH>Bahrain</OPTION> <OPTION 
+                          value=BD>Bangladesh</OPTION> <OPTION 
+                          value=BB>Barbados</OPTION> <OPTION 
+                          value=BY>Belarus</OPTION> <OPTION 
+                          value=BE>Belgium</OPTION> <OPTION 
+                          value=BZ>Belize</OPTION> <OPTION 
+                          value=BJ>Benin</OPTION> <OPTION 
+                          value=BM>Bermuda</OPTION> <OPTION 
+                          value=BT>Bhutan</OPTION> <OPTION 
+                          value=BO>Bolivia</OPTION> <OPTION value=BA>Bosnia and 
+                          Herzegovina</OPTION> <OPTION 
+                          value=BW>Botswana</OPTION> <OPTION value=BV>Bouvet 
+                          Island</OPTION> <OPTION value=BR>Brazil</OPTION> 
+                          <OPTION value=IO>British Indian Ocean 
+                          Territory</OPTION> <OPTION value=BN>Brunei 
+                          Darussalam</OPTION> <OPTION value=BG>Bulgaria</OPTION> 
+                          <OPTION value=BF>Burkina Faso</OPTION> <OPTION 
+                          value=BI>Burundi</OPTION> <OPTION 
+                          value=KH>Cambodia</OPTION> <OPTION 
+                          value=CM>Cameroon</OPTION> <OPTION 
+                          value=CA>Canada</OPTION> <OPTION value=CV>Cape 
+                          Verde</OPTION> <OPTION value=KY>Cayman 
+                          Islands</OPTION> <OPTION value=CF>Central African 
+                          Republic</OPTION> <OPTION value=TD>Chad</OPTION> 
+                          <OPTION value=CL>Chile</OPTION> <OPTION 
+                          value=CN>China</OPTION> <OPTION value=CX>Christmas 
+                          Island</OPTION> <OPTION value=CC>Cocos (Keeling) 
+                          Islands</OPTION> <OPTION value=CO>Colombia</OPTION> 
+                          <OPTION value=KM>Comoros</OPTION> <OPTION 
+                          value=CG>Congo</OPTION> <OPTION value=CD>Congo, The 
+                          Democratic Republic</OPTION> <OPTION value=CK>Cook 
+                          Islands</OPTION> <OPTION value=CR>Costa Rica</OPTION> 
+                          <OPTION value=CI>Cote D'Ivoire</OPTION> <OPTION 
+                          value=HR>Croatia</OPTION> <OPTION 
+                          value=CU>Cuba</OPTION> <OPTION 
+                          value=CY>Cyprus</OPTION> <OPTION value=CZ>Czech 
+                          Republic</OPTION> <OPTION value=DK>Denmark</OPTION> 
+                          <OPTION value=DJ>Djibouti</OPTION> <OPTION 
+                          value=DM>Dominica</OPTION> <OPTION value=DO>Dominican 
+                          Republic</OPTION> <OPTION value=TL>East Timor</OPTION> 
+                          <OPTION value=EC>Ecuador</OPTION> <OPTION 
+                          value=EG>Egypt</OPTION> <OPTION value=SV>El 
+                          Salvador</OPTION> <OPTION value=GQ>Equatorial 
+                          Guinea</OPTION> <OPTION value=ER>Eritrea</OPTION> 
+                          <OPTION value=EE>Estonia</OPTION> <OPTION 
+                          value=ET>Ethiopia</OPTION> <OPTION value=FK>Falkland 
+                          Islands (Malvinas)</OPTION> <OPTION value=FO>Faroe 
+                          Islands</OPTION> <OPTION value=FJ>Fiji</OPTION> 
+                          <OPTION value=FI>Finland</OPTION> <OPTION value=MK>Fmr 
+                          Yugoslav Rep of Macedonia</OPTION> <OPTION 
+                          value=FR>France</OPTION> <OPTION value=GF>French 
+                          Guiana</OPTION> <OPTION value=PF>French 
+                          Polynesia</OPTION> <OPTION value=TF>French Southern 
+                          Territories</OPTION> <OPTION value=GA>Gabon</OPTION> 
+                          <OPTION value=GM>Gambia</OPTION> <OPTION 
+                          value=GE>Georgia</OPTION> <OPTION 
+                          value=DE>Germany</OPTION> <OPTION 
+                          value=GH>Ghana</OPTION> <OPTION 
+                          value=GI>Gibraltar</OPTION> <OPTION 
+                          value=GR>Greece</OPTION> <OPTION 
+                          value=GL>Greenland</OPTION> <OPTION 
+                          value=GD>Grenada</OPTION> <OPTION 
+                          value=GP>Guadeloupe</OPTION> <OPTION 
+                          value=GU>Guam</OPTION> <OPTION 
+                          value=GT>Guatemala</OPTION> <OPTION 
+                          value=GN>Guinea</OPTION> <OPTION 
+                          value=GW>Guinea-Bissau</OPTION> <OPTION 
+                          value=GY>Guyana</OPTION> <OPTION 
+                          value=HT>Haiti</OPTION> <OPTION value=HM>Heard and 
+                          McDonald Islands</OPTION> <OPTION value=VA>Holy See 
+                          (Vatican City State)</OPTION> <OPTION 
+                          value=HN>Honduras</OPTION> <OPTION value=HK>Hong 
+                          Kong</OPTION> <OPTION value=HU>Hungary</OPTION> 
+                          <OPTION value=IS>Iceland</OPTION> <OPTION 
+                          value=IN>India</OPTION> <OPTION 
+                          value=ID>Indonesia</OPTION> <OPTION value=IR>Iran 
+                          (Islamic Republic Of)</OPTION> <OPTION 
+                          value=IQ>Iraq</OPTION> <OPTION 
+                          value=IE>Ireland</OPTION> <OPTION 
+                          value=IL>Israel</OPTION> <OPTION 
+                          value=IT>Italy</OPTION> <OPTION 
+                          value=JM>Jamaica</OPTION> <OPTION 
+                          value=JP>Japan</OPTION> <OPTION 
+                          value=JO>Jordan</OPTION> <OPTION 
+                          value=KZ>Kazakstan</OPTION> <OPTION 
+                          value=KE>Kenya</OPTION> <OPTION 
+                          value=KI>Kiribati</OPTION> <OPTION value=KP>Korea, 
+                          Democratic People's Rep</OPTION> <OPTION 
+                          value=KR>Korea, Republic of</OPTION> <OPTION 
+                          value=KW>Kuwait</OPTION> <OPTION 
+                          value=KG>Kyrgyzstan</OPTION> <OPTION value=LA>Lao 
+                          People's Democratic Rep</OPTION> <OPTION 
+                          value=LV>Latvia</OPTION> <OPTION 
+                          value=LB>Lebanon</OPTION> <OPTION 
+                          value=LS>Lesotho</OPTION> <OPTION 
+                          value=LR>Liberia</OPTION> <OPTION value=LY>Libyan Arab 
+                          Jamahiriya</OPTION> <OPTION 
+                          value=LI>Liechtenstein</OPTION> <OPTION 
+                          value=LT>Lithuania</OPTION> <OPTION 
+                          value=LU>Luxembourg</OPTION> <OPTION 
+                          value=MO>Macau</OPTION> <OPTION 
+                          value=MG>Madagascar</OPTION> <OPTION 
+                          value=MW>Malawi</OPTION> <OPTION 
+                          value=MY>Malaysia</OPTION> <OPTION 
+                          value=MV>Maldives</OPTION> <OPTION 
+                          value=ML>Mali</OPTION> <OPTION value=MT>Malta</OPTION> 
+                          <OPTION value=MH>Marshall Islands</OPTION> <OPTION 
+                          value=MQ>Martinique</OPTION> <OPTION 
+                          value=MR>Mauritania</OPTION> <OPTION 
+                          value=MU>Mauritius</OPTION> <OPTION 
+                          value=YT>Mayotte</OPTION> <OPTION 
+                          value=MX>Mexico</OPTION> <OPTION value=FM>Micronesia, 
+                          Federated States</OPTION> <OPTION value=MD>Moldova, 
+                          Republic of</OPTION> <OPTION value=MC>Monaco</OPTION> 
+                          <OPTION value=MN>Mongolia</OPTION> <OPTION 
+                          value=MS>Montserrat</OPTION> <OPTION 
+                          value=MA>Morocco</OPTION> <OPTION 
+                          value=MZ>Mozambique</OPTION> <OPTION 
+                          value=MM>Myanmar</OPTION> <OPTION 
+                          value=NA>Namibia</OPTION> <OPTION 
+                          value=NR>Nauru</OPTION> <OPTION 
+                          value=NP>Nepal</OPTION> <OPTION 
+                          value=NL>Netherlands</OPTION> <OPTION 
+                          value=AN>Netherlands Antilles</OPTION> <OPTION 
+                          value=NC>New Caledonia</OPTION> <OPTION value=NZ>New 
+                          Zealand</OPTION> <OPTION value=NI>Nicaragua</OPTION> 
+                          <OPTION value=NE>Niger</OPTION> <OPTION 
+                          value=NG>Nigeria</OPTION> <OPTION 
+                          value=NU>Niue</OPTION> <OPTION value=NF>Norfolk 
+                          Island</OPTION> <OPTION value=MP>Northern Mariana 
+                          Islands</OPTION> <OPTION value=NO>Norway</OPTION> 
+                          <OPTION value=OM>Oman</OPTION> <OPTION 
+                          value=PK>Pakistan</OPTION> <OPTION 
+                          value=PW>Palau</OPTION> <OPTION 
+                          value=PA>Panama</OPTION> <OPTION value=PG>Papua New 
+                          Guinea</OPTION> <OPTION value=PY>Paraguay</OPTION> 
+                          <OPTION value=PE>Peru</OPTION> <OPTION 
+                          value=PH>Philippines</OPTION> <OPTION 
+                          value=PN>Pitcairn</OPTION> <OPTION 
+                          value=PL>Poland</OPTION> <OPTION 
+                          value=PT>Portugal</OPTION> <OPTION value=PR>Puerto 
+                          Rico</OPTION> <OPTION value=QA>Qatar</OPTION> <OPTION 
+                          value=RE>Reunion</OPTION> <OPTION 
+                          value=RO>Romania</OPTION> <OPTION value=RU>Russian 
+                          Federation</OPTION> <OPTION value=RW>Rwanda</OPTION> 
+                          <OPTION value=SH>Saint Helena</OPTION> <OPTION 
+                          value=KN>Saint Kitts and Nevis</OPTION> <OPTION 
+                          value=LC>Saint Lucia</OPTION> <OPTION value=PM>Saint 
+                          Pierre and Miquelon</OPTION> <OPTION 
+                          value=WS>Samoa</OPTION> <OPTION value=SM>San 
+                          Marino</OPTION> <OPTION value=ST>Sao Tome and 
+                          Principe</OPTION> <OPTION value=SA>Saudi 
+                          Arabia</OPTION> <OPTION value=SN>Senegal</OPTION> 
+                          <OPTION value=SC>Seychelles</OPTION> <OPTION 
+                          value=SL>Sierra Leone</OPTION> <OPTION 
+                          value=SG>Singapore</OPTION> <OPTION 
+                          value=SK>Slovakia</OPTION> <OPTION 
+                          value=SI>Slovenia</OPTION> <OPTION value=SB>Solomon 
+                          Islands</OPTION> <OPTION value=SO>Somalia</OPTION> 
+                          <OPTION value=ZA>South Africa</OPTION> <OPTION 
+                          value=ES>Spain</OPTION> <OPTION value=LK>Sri 
+                          Lanka</OPTION> <OPTION value=VC>St Vincent and the 
+                          Grenadines</OPTION> <OPTION value=GS>Sth Georgia &amp; 
+                          Sth Sandwich Is</OPTION> <OPTION 
+                          value=SD>Sudan</OPTION> <OPTION 
+                          value=SR>Suriname</OPTION> <OPTION value=SJ>Svalbard 
+                          and Jan Mayen</OPTION> <OPTION 
+                          value=SZ>Swaziland</OPTION> <OPTION 
+                          value=SE>Sweden</OPTION> <OPTION 
+                          value=CH>Switzerland</OPTION> <OPTION value=SY>Syrian 
+                          Arab Republic</OPTION> <OPTION value=TW>Taiwan, 
+                          Province of China</OPTION> <OPTION 
+                          value=TJ>Tajikistan</OPTION> <OPTION 
+                          value=TZ>Tanzania, United Republic of</OPTION> <OPTION 
+                          value=TH>Thailand</OPTION> <OPTION 
+                          value=TG>Togo</OPTION> <OPTION 
+                          value=TK>Tokelau</OPTION> <OPTION 
+                          value=TO>Tonga</OPTION> <OPTION value=88>Tonga Numeric 
+                          Code</OPTION> <OPTION value=TT>Trinidad and 
+                          Tobago</OPTION> <OPTION value=TN>Tunisia</OPTION> 
+                          <OPTION value=TR>Turkey</OPTION> <OPTION 
+                          value=TM>Turkmenistan</OPTION> <OPTION value=TC>Turks 
+                          and Caicos Islands</OPTION> <OPTION 
+                          value=TV>Tuvalu</OPTION> <OPTION value=UM>US Minor 
+                          Outlying Islands</OPTION> <OPTION 
+                          value=UG>Uganda</OPTION> <OPTION 
+                          value=UA>Ukraine</OPTION> <OPTION value=AE>United Arab 
+                          Emirates</OPTION> <OPTION value=GB>United 
+                          Kingdom</OPTION> <OPTION selected value=US>United 
+                          States</OPTION> <OPTION value=UY>Uruguay</OPTION> 
+                          <OPTION value=UZ>Uzbekistan</OPTION> <OPTION 
+                          value=VU>Vanuatu</OPTION> <OPTION 
+                          value=VE>Venezuela</OPTION> <OPTION value=VN>Viet 
+                          Nam</OPTION> <OPTION value=VG>Virgin Islands 
+                          (British)</OPTION> <OPTION value=VI>Virgin Islands 
+                          (U.S.)</OPTION> <OPTION value=WF>Wallis and Futuna 
+                          Islands</OPTION> <OPTION value=EH>Western 
+                          Sahara</OPTION> <OPTION value=YE>Yemen</OPTION> 
+                          <OPTION value=CS>Yugoslavia</OPTION> <OPTION 
+                          value=ZM>Zambia</OPTION> <OPTION 
+                          value=ZW>Zimbabwe</OPTION></SELECT> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Phone Number:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><SPAN id=phoneCountryCode 
+                        class=countryPhoneCode></SPAN>- <INPUT id=phoneNumber 
+                        maxLength=100 size=23 name=phoneNumber> <SPAN 
+                        id=phoneHelp></SPAN></SPAN></TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right>Mobile Phone 
+                        Number:</SPAN></STRONG></TD>
+                      <TD class=tableDataUnderscore><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><SPAN 
+                        id=mobilePhoneCountryCode 
+                        class=countryPhoneCode></SPAN>- <INPUT 
+                        id=mobilePhoneNumber maxLength=100 size=23 
+                        name=mobilePhoneNumber> <SPAN 
+                      id=mobilePhoneHelp></SPAN></TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right>Fax 
+                        Number:</SPAN></STRONG></TD>
+                      <TD class=tableDataUnderscore><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=100 size=30 name=faxNumber> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Email Address:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=255 size=30 name=emailAddress> </TD></TR>
+                    <TR id=emailAddress2TrId vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Re-enter Email 
+                      Address:</SPAN></STRONG></SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><INPUT id=null 
+                        maxLength=255 size=30 name=emailAddress2> </TD></TR><INPUT 
+                    type=hidden name=smsAddress> 
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Time Zone:</SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><SELECT name=timeZone> 
+                          <OPTION value=5317>(GMT-12:00) Eniwetok, 
+                          Kwajalein</OPTION> <OPTION value=5002>(GMT-11:00) 
+                          Midway Island Samoa</OPTION> <OPTION 
+                          value=5007>(GMT-10:00) Hawaii</OPTION> <OPTION 
+                          value=5013>(GMT-09:00) Alaska</OPTION> <OPTION 
+                          value=5017>(GMT-08:00) Pacific Time (US &amp; Canada); 
+                          Tijuana</OPTION> <OPTION value=5021>(GMT-07:00) 
+                          Arizona</OPTION> <OPTION value=5026>(GMT-07:00) 
+                          Mountain Time (US &amp; Canada)</OPTION> <OPTION 
+                          value=5038>(GMT-06:00) Central Time (US &amp; 
+                          Canada)</OPTION> <OPTION value=5036>(GMT-06:00) Mexico 
+                          City, Tegucigalpa</OPTION> <OPTION 
+                          value=5034>(GMT-06:00) Saskatchewan</OPTION> <OPTION 
+                          value=5040>(GMT-05:00) Bogota, Lima, Quito</OPTION> 
+                          <OPTION selected value=5055>(GMT-05:00) Eastern Time 
+                          (US &amp; Canada)</OPTION> <OPTION 
+                          value=5048>(GMT-05:00) Indiana (East)</OPTION> <OPTION 
+                          value=5082>(GMT-04:00) Atlantic Time Canada</OPTION> 
+                          <OPTION value=5078>(GMT-04:00) Caracas, La 
+                          Paz</OPTION> <OPTION value=5086>(GMT-04:00) 
+                          Santiago</OPTION> <OPTION value=5087>(GMT-03:30) 
+                          Newfoundland</OPTION> <OPTION value=5098>(GMT-03:00) 
+                          Brasilia</OPTION> <OPTION value=5093>(GMT-03:00) 
+                          Buenos Aires, Georgetown</OPTION> <OPTION 
+                          value=5088>(GMT-03:00) CNT</OPTION> <OPTION 
+                          value=5100>(GMT-02:00) Mid-Atlantic</OPTION> <OPTION 
+                          value=5104>(GMT-01:00) Azores, Cape Verde 
+                          Island</OPTION> <OPTION value=5113>(GMT-00:00) 
+                          Casablanca, Monrovia</OPTION> <OPTION 
+                          value=5121>(GMT-00:00) Greenvich Mean Time: Dublin, 
+                          Edinburgh, Lisbon, London</OPTION> <OPTION 
+                          value=5158>(GMT+01:00) Amsterdam, Copenhagen, Madrid, 
+                          Paris, Vilnius</OPTION> <OPTION value=5162>(GMT+01:00) 
+                          Belgrade, Sarajevo, Skopje, Zagreb</OPTION> <OPTION 
+                          value=5143>(GMT+01:00) Brussels, Berlin, Bern, Rome, 
+                          Stockholm, Vienna</OPTION> <OPTION 
+                          value=5178>(GMT+01:00) Sarajevo, Skopje, Sofija, 
+                          Warsaw, Zagreb</OPTION> <OPTION value=5185>(GMT+02:00) 
+                          Athens, Istanbul, Minsk</OPTION> <OPTION 
+                          value=5192>(GMT+02:00) Bucharest</OPTION> <OPTION 
+                          value=5182>(GMT+02:00) Cairo</OPTION> <OPTION 
+                          value=5175>(GMT+02:00) Harare, Pretoria</OPTION> 
+                          <OPTION value=5184>(GMT+02:00) Helsinki, Riga, 
+                          Tallinn</OPTION> <OPTION value=5186>(GMT+02:00) 
+                          Jerusalem</OPTION> <OPTION value=5214>(GMT+03:00) 
+                          Baghdad, Kuwait, Riyadh</OPTION> <OPTION 
+                          value=5216>(GMT+03:00) Moscow, St. Petersburg, 
+                          Volgograd</OPTION> <OPTION value=5203>(GMT+03:00) 
+                          Nairobi</OPTION> <OPTION value=5217>(GMT+03:30) 
+                          Teheran</OPTION> <OPTION value=5221>(GMT+04:00) Abu 
+                          Dhabi, Muscat</OPTION> <OPTION value=5226>(GMT+04:00) 
+                          Baku, Tbilsi</OPTION> <OPTION value=5229>(GMT+04:30) 
+                          Kabul</OPTION> <OPTION value=5241>(GMT+05:00) 
+                          Ekaterinburg</OPTION> <OPTION value=5237>(GMT+05:00) 
+                          Islamabad, Karachi, Tashkent</OPTION> <OPTION 
+                          value=5242>(GMT+05:30) Bombay, Calcutta, Madras, new 
+                          Delhi</OPTION> <OPTION value=5250>(GMT+06:00) Almaty, 
+                          Dhaka</OPTION> <OPTION value=5247>(GMT+06:00) 
+                          Colombo</OPTION> <OPTION value=5260>(GMT+07:00) 
+                          Bangkok, Hanoi, Jakarta</OPTION> <OPTION 
+                          value=5265>(GMT+08:00) Beijing, Chongqing, Hong Kong, 
+                          Urumqi</OPTION> <OPTION value=5263>(GMT+08:00) 
+                          Perth</OPTION> <OPTION value=5271>(GMT+08:00) 
+                          Singapore</OPTION> <OPTION value=5272>(GMT+08:00) 
+                          Taipei</OPTION> <OPTION value=5285>(GMT+09:00) 
+                          ACT</OPTION> <OPTION value=5281>(GMT+09:00) Osaka, 
+                          Sapporo, Tokyo</OPTION> <OPTION value=5279>(GMT+09:00) 
+                          Seoul</OPTION> <OPTION value=5283>(GMT+09:00) 
+                          Yakutsk</OPTION> <OPTION value=5286>(GMT+09:30) 
+                          Adelaide</OPTION> <OPTION value=5292>(GMT+10:00) 
+                          Brisbane</OPTION> <OPTION value=5294>(GMT+10:00) 
+                          Canberra, Melbourne, Sydney</OPTION> <OPTION 
+                          value=5289>(GMT+10:00) Guam, Port Moresby</OPTION> 
+                          <OPTION value=5296>(GMT+10:00) Hobart</OPTION> <OPTION 
+                          value=5293>(GMT+10:00) Vladivostok</OPTION> <OPTION 
+                          value=5298>(GMT+11:00) Magadan, Solomon Is., New 
+                          Caledonia</OPTION> <OPTION value=5314>(GMT+12:00) 
+                          Auckland, Wellington</OPTION> <OPTION 
+                          value=5311>(GMT+12:00) Fiji, Kamchatka, Marshall 
+                          Island</OPTION></SELECT> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataTitle align=right><SPAN 
+                        class=req>*Language Preference:</SPAN></TD>
+                      <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD class=tableDataUnderscore><SELECT 
+                        id=prefferedLanguage name=preferredLanguage> <OPTION 
+                          selected value=1>English</OPTION></SELECT> </TD></TR>
+                    <TR vAlign=top>
+                      <TD class=tableDataUnderscore colSpan=4 
+                        align=center>&nbsp;<BR><INPUT onclick=javascript:nextPage(); class=buttonWideOn type=button value="continue registration" name=submitBn> 
+                        &nbsp;&nbsp;&nbsp; <INPUT onclick=javascript:resetForm() class=button type=button value="Undo Changes"> 
+                        <BR>&nbsp; </TD></TR></TBODY></TABLE><!-- end User Info table --></FORM></DIV></TD>
+                <TD>&nbsp;</TD></TR></TBODY></TABLE></TD>
+          <TD background=Registration_files/tabUnderRightBg.gif width=5><IMG 
+            border=0 alt="" src="Registration_files/spacer.gif" width=5 
+          height=5></TD></TR>
+        <TR>
+          <TD 
+          style="HEIGHT: 10px; WIDTH: 5px; BACKGROUND: url(/images/tabUnderBottomLeftBg.gif) no-repeat 0px 0px" 
+          width=5></TD>
+          <TD background=Registration_files/tabUnderBottomBg.gif><IMG border=0 
+            alt="" src="Registration_files/spacer.gif" width=2 height=10></TD>
+          <TD 
+          style="HEIGHT: 10px; WIDTH: 5px; BACKGROUND: url(/images/tabUnderBottomRightBg.gif) no-repeat 0px 0px" 
+          width=5></TD></TR></TBODY></TABLE><!-- begin DHTML tooltip script -->
+      <DIV id=Migoicons 
+      style="POSITION: absolute; Z-INDEX: 1000; TOP: -100px; VISIBILITY: hidden"></DIV>
+      <SCRIPT language=JavaScript1.2 type=text/javascript>
+// Use the generator to create your codes
+Text[01]=["","<b>Wireless\x20Email\x20Address</b><br>Your\x20Wireless\x20Email\x20Address\x20is\x20the\x20email\x20address\x20of\x20your\x20cell\x20phone,\x20pager,\x20pda,\x20or\x20other\x20text\x2Dmessage\x20capable\x20device\x20that\x20you\x20carry."]
+Style[00]=["","","","","",,"black","#ffffe1","","","",,,,1,"black",2,24,0.3,,2,"gray",1,,20,-100]
+var TipId="Migoicons" 
+var FiltersEnabled = 1 
+mig_clay()
+</SCRIPT>
+<!-- end DHTML tooltip script --><!-- END MAIN CONTENT --><!-- include the footer --><!-- Footer Start --></TD><!-- right gutter -->
+    <TD>&nbsp;&nbsp;</TD></TR></TBODY></TABLE><!-- begin Footer table -->
+<TABLE cellSpacing=0 cellPadding=3 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=middle noWrap align=right><SPAN 
+      class=textFooter>2015&nbsp;Covisint Corporation. All Rights 
+      Reserved&nbsp;&nbsp;</SPAN> </TD></TR>
+  <TR bgColor=#dedede>
+    <TD vAlign=middle noWrap align=right><SPAN class=textFooter>Last Login 
+      Date: </SPAN></TD></TR></TBODY></TABLE><!-- end Footer table -->
+<SCRIPT language=javascript>
+	var focusElement = document.userInfoForm.title;
+	if (focusElement.type != 'hidden') {
+		focusElement.focus();	
+		document.getElementById('titleSamplesId').style.display = 'block';
+	} else {
+		document.getElementById('titleSamplesId').style.display = 'none';
+	}
+	var emailAddress2Element = document.userInfoForm.emailAddress2;
+	if (emailAddress2Element.type == 'hidden') {
+		document.getElementById('emailAddress2TrId').style.display = 'none';
+	}
+	function resetForm() {
+		document.userInfoForm.reset();
+		setHelpText();
+	}
+</SCRIPT>
+</BODY></HTML>
