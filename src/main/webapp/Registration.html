@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!-- saved from url=(0103)https://bit6-cca.identity.covapp.io/CommonReg -->
 <HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
-<TITLE>Covisint Connection and Administration</TITLE>
+<TITLE>Covisint Connection and Administration</TITLE><LINK rel="SHORTCUT ICON" 
+type=image/ico href="https://bit6-cca.identity.covapp.io/images/favicon.ico">
 <META content=IE=5 http-equiv=X-UA-Compatible>
 <META content="text/html; charset=utf-8" http-equiv=Content-Type>
 <SCRIPT language=JavaScript src="Registration_files/commReg.js"></SCRIPT>
@@ -47,6 +48,9 @@ src="Registration_files/jquery.ui.dialog.js"></SCRIPT>
 rel=stylesheet type=text/css href="Registration_files/commReg_default.css"><!-- Custom CSS --><LINK 
 rel=stylesheet 
 href="https://bit6-cca.portal.covapp.io/documents/guest/css/login/css_override.css">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+
 <SCRIPT language=JavaScript type=text/javascript>
 
       // REQUIRED for preventing Cross-Frame Spoofing - do not delete!
@@ -61,10 +65,11 @@ href="https://bit6-cca.portal.covapp.io/documents/guest/css/login/css_override.c
             // nothing
       }
 
-      //var exImg=new Image(); exImg.src='/images/left_arrow_expand.gif'
-      //var unImg=new Image(); unImg.src='/images/left_arrow_collapse.gif'
+      var exImg=new Image(); exImg.src='/images/left_arrow_expand.gif'
+      var unImg=new Image(); unImg.src='/images/left_arrow_collapse.gif'
 
       function docInit() {
+		initialize();
             
       }
 
@@ -247,11 +252,89 @@ function setIframeHeight(iframe) {
   }
 	}
 </SCRIPT>
+    <script>
+// This example displays an address form, using the autocomplete feature
+// of the Google Places API to help users fill in the information.
 
-<FORM style="DISPLAY: none" method=post name=convertGetToPostForm></FORM>
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'short_name',
+  postal_code: 'short_name'
+};
+
+function initialize() {
+  // Create the autocomplete object, restricting the search
+  // to geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+      { types: ['geocode'] });
+  // When the user selects an address from the dropdown,
+  // populate the address fields in the form.
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    fillInAddress();
+  });
+}
+
+// [START region_fillform]
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details
+  // and fill the corresponding field on the form.
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+	
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+	  alert( 'AddressType : ' + addressType + ':::: ' + document.getElementById(addressType).value);
+	}
+  }
+  alert("after Loop : " );
+  alert(document.getElementById('street_number').value);
+  document.userInfoForm.address1.value = document.getElementById('street_number').value + ', ' + document.getElementById('route').value;
+  alert('address1 : ' + document.userInfoForm.address1.value);
+  document.userInfoForm.cityRegion.value	   = document.getElementById('locality').value;
+  document.userInfoForm.stateProvince.value	   = document.getElementById('administrative_area_level_1').value;
+  document.getElementById("countryCode").value	   = document.getElementById('country').value;
+  document.userInfoForm.postalCode.value	   = document.getElementById('postal_code').value;
+}
+// [END region_fillform]
+
+// [START region_geolocation]
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = new google.maps.LatLng(
+          position.coords.latitude, position.coords.longitude);
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+// [END region_geolocation]
+
+    </script>
+ 
 <META name=GENERATOR content="MSHTML 11.00.9600.17690"></HEAD>
 <BODY onload=docInit(); leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
 text=#000000 marginheight="0" marginwidth="0">
+<FORM style="DISPLAY: none" method=post name=convertGetToPostForm></FORM>
 <DIV id=overDiv 
 style="RIGHT: 0px; POSITION: absolute; LEFT: 0px; Z-INDEX: 1000; TOP: 0px; VISIBILITY: hidden; BOTTOM: 0px"></DIV><!-- ----- begin Covisint header table ----- -->
 <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0><!-- begin Logout form -->
@@ -699,7 +782,7 @@ height=25></TD>
                     <TR vAlign=top>
                       <TD class=tableDataTitle 
                         align=right>Prefix:</SPAN></STRONG></TD>
-                      <TD class=tableDataTitle><IMG bohttps://github.com/ApurvaTiwari/NewCCA/tree/master/src/main/webapp/RegistrationPage2_filesrder=0 alt="" 
+                      <TD class=tableDataTitle><IMG border=0 alt="" 
                         src="Registration_files/spacer.gif" width=2 height=1></TD>
                       <TD class=tableDataUnderscore><!--input type="text" name="title" size="30" maxlength="30" value=""--><INPUT 
                         id=null maxLength=30 size=30 name=title> &nbsp;<SPAN 
@@ -732,6 +815,17 @@ height=25></TD>
                         src="Registration_files/spacer.gif" width=2 height=1></TD>
                       <TD class=tableDataUnderscore><INPUT id=null 
                         maxLength=60 size=30 name=jobTitle> </TD></TR>
+					<TR valign="top">
+					  <TD class="tableDataTitle align="right" > Auto Address Complete:</TD>
+					  <TD class=tableDataTitleReq><IMG border=0 alt="" 
+                        src="Registration_files/spacer.gif" width=2 height=1></TD>
+                      <TD> <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" size=30 type="text"> </input>
+					  <input type="hidden" id="street_number" disabled="true"></input>
+					  <input type="hidden" id="route" disabled="true"></input>
+					  <input type="hidden" id="locality" disabled="true"></input><input type="hidden"
+              id="administrative_area_level_1" disabled="true"></input><input type="hidden" id="postal_code"
+              disabled="true"></input><input type="hidden"
+              id="country" disabled="true"></input></TD>
                     <TR vAlign=top>
                       <TD class=tableDataTitle align=right><SPAN 
                         class=req>*Address 1:</SPAN></STRONG></SPAN></TD>
@@ -739,7 +833,7 @@ height=25></TD>
                         src="Registration_files/spacer.gif" width=2 height=1></TD>
                       <TD class=tableDataUnderscore><INPUT id=null 
                         maxLength=255 size=30 value="25800 Northwestern Hwy" 
-                        name=address1> </TD></TR>
+                        name=address1 > </TD></TR>
                     <TR vAlign=top>
                       <TD class=tableDataTitle align=right>Address 
                         2:</SPAN></STRONG></TD>
@@ -1147,12 +1241,12 @@ height=25></TD>
           height=5></TD></TR>
         <TR>
           <TD 
-          style="HEIGHT: 10px; WIDTH: 5px) no-repeat 0px 0px" 
+          style="HEIGHT: 10px; WIDTH: 5px; BACKGROUND: url(/images/tabUnderBottomLeftBg.gif) no-repeat 0px 0px" 
           width=5></TD>
-          <TD><IMG border=0 
+          <TD background=Registration_files/tabUnderBottomBg.gif><IMG border=0 
             alt="" src="Registration_files/spacer.gif" width=2 height=10></TD>
           <TD 
-          style="HEIGHT: 10px; WIDTH: 5px) no-repeat 0px 0px" 
+          style="HEIGHT: 10px; WIDTH: 5px; BACKGROUND: url(/images/tabUnderBottomRightBg.gif) no-repeat 0px 0px" 
           width=5></TD></TR></TBODY></TABLE><!-- begin DHTML tooltip script -->
       <DIV id=Migoicons 
       style="POSITION: absolute; Z-INDEX: 1000; TOP: -100px; VISIBILITY: hidden"></DIV>
